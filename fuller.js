@@ -39,6 +39,23 @@ var total_size = 0;
 // loop
 var running = false;
 
+// make an audio thing
+var audio_player = new AudioContext();
+var volume = audio_player.createGain();
+var sound1 = audio_player.createOscillator();
+sound1.type = "triangle";
+
+// connect audio things
+sound1.connect(volume);
+volume.connect(audio_player.destination);
+
+// get sound button
+var sound_button = document.getElementById("sound");
+var sound_on = false;
+var sound_off_str = "WOOP WOOP WOOP";
+var sound_on_str = "STOP STOP STOP";
+sound_button.innerHTML = sound_off_str;
+
 // get video button elements
 var toggle_button = document.getElementById("video");
 toggle_button.style.visibility = "hidden";
@@ -283,6 +300,21 @@ function toggle_mark() {
 		brc.style.visibility = "visible";
 		toggle_button.innerHTML = start_str;
 		get_one_image();
+	}
+}
+
+// start sound
+function toggle_sound() {
+	// switch between modes
+	if (sound_on) {
+		sound_on = false;
+		sound_button.innerHTML = sound_off_str;
+		sound1.start();
+	}
+	else {
+		sound_on = true;
+		sound_button.innerHTML = sound_on_str;
+		sound1.stop();
 	}
 }
 
