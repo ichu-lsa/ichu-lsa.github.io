@@ -47,8 +47,7 @@ var sound1 = audio_player.createOscillator();
 sound1.type = "triangle";
 
 // connect audio things
-// sound1.connect(volume);
-sound1.start(); // don't connect until ready to play
+// sound1.connect(volume); // don't connect until ready to play
 volume.connect(audio_player.destination);
 
 // get sound button
@@ -184,6 +183,7 @@ function evaluate_corners () {
 
 function scan()
 {
+	sound1.start(); // must start on gesture
 	console.log("Scanning...");
 	scan_button.innerHTML = connecting_str;
 	// set up options
