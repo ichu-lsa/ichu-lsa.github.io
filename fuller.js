@@ -310,12 +310,12 @@ function toggle_sound() {
 	if (sound_on) {
 		sound_on = false;
 		sound_button.innerHTML = sound_off_str;
-		sound1.start();
+		sound1.stop();
 	}
 	else {
 		sound_on = true;
 		sound_button.innerHTML = sound_on_str;
-		sound1.stop();
+		sound1.start();
 	}
 }
 
