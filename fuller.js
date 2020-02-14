@@ -47,7 +47,8 @@ var sound1 = audio_player.createOscillator();
 sound1.type = "triangle";
 
 // connect audio things
-sound1.connect(volume);
+// sound1.connect(volume);
+sound1.start(); // don't connect until ready to play
 volume.connect(audio_player.destination);
 
 // get sound button
@@ -310,12 +311,12 @@ function toggle_sound() {
 	if (sound_on) {
 		sound_on = false;
 		sound_button.innerHTML = sound_off_str;
-		sound1.stop();
+		sound1.disconnect(volume);
 	}
 	else {
 		sound_on = true;
 		sound_button.innerHTML = sound_on_str;
-		sound1.start();
+		sound1.connect(volume);
 	}
 }
 
