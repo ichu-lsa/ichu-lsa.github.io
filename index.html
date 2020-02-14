@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Favicon Stuff -->
+		<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+		<link rel="manifest" href="./site.webmanifest">
+		<link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#b91d47">
+		<meta name="theme-color" content="#ffffff">
+
+		<!-- Set title and characters -->
+		<meta charset="utf-8">
+		<title>Dockcam App</title>
+
+		<!-- set the style -->
+		<style>
+			#container { position: relative; }
+			#imageView { border: 1px solid #000; }
+		</style>
+		<!-- set up a canvas -->
+		<body>
+			<!-- set up bluetooth buttons -->
+			<button id="scanning" onclick="scan()">Scan</button>
+			<button id="marking" onclick="toggle_mark()">Mark</button>
+			<button id="video" onclick="toggle_video()"></button>
+
+			<!-- set up drawing stuff -->
+			<div id="container">
+				<canvas id="imageView" width="320" height="240"> <
+				</canvas>
+			</div>
+			<img id="draw_bg" src="" style="display:none">
+			<p id="top_left">Top Left: [0,0]</p>
+			<p id="bottom_right">Bottom Right: [0,0]</p>
+			<button id="send_corners" onclick="send_corners()">Send</button>
+			<script src = "fuller.js"></script>
+			<script src="companion.js" data-service-worker="sw.js"></script>
+		</body>
+	</head>
+</html>
