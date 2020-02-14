@@ -42,6 +42,7 @@ var running = false;
 // make an audio thing
 var audio_player = new AudioContext();
 var volume = audio_player.createGain();
+volume.gain.value = 0.1;
 var sound1 = audio_player.createOscillator();
 sound1.type = "triangle";
 
