@@ -42,18 +42,8 @@ var total_size = 0;
 // loop
 var running = false;
 
-// make an audio thing
-var audio_player = new AudioContext();
-var volume = audio_player.createGain();
-volume.gain.value = 0.1;
-var sound1 = audio_player.createOscillator();
-sound1.type = "triangle";
-var sound_on = false;
-var audio_started = false; // there's no method to check whether or not audio is ready
-
-// connect audio things
-// sound1.connect(volume); // don't connect until ready to play
-volume.connect(audio_player.destination);
+// DEBUG, try showing the brc text
+brc.style.visibility = "visible";
 
 // get video button elements
 var toggle_button = document.getElementById("video");
@@ -181,11 +171,6 @@ function evaluate_corners () {
 
 function scan()
 {
-	// start the audio if it needs it
-	if (!audio_started){
-		sound1.start(); // must start on gesture
-		audio_started = true;
-	}
 	console.log("Scanning...");
 	scan_button.innerHTML = connecting_str;
 	// set up options
@@ -307,19 +292,6 @@ function toggle_mark() {
 	}
 }
 
-// start sound
-function toggle_sound() {
-	// switch between modes
-	if (sound_on) {
-		sound_on = false;
-		sound1.disconnect(volume);
-	}
-	else {
-		sound_on = true;
-		sound1.connect(volume);
-	}
-}
-
 // request single image
 async function get_one_image() {
 	// set up encoder and start writing
@@ -390,15 +362,9 @@ function send_corners() {
 	})
 }
 
-// 1 second beep
-function beep() {
-	toggle_sound();
-	window.setTimeout(toggle_sound, 1000);
-}
-
 // send a push notification // TODO: actually implement this (just activates a beep for now)
 function sendPush() {
-	beep();
+	// do nothing
 }
 
 // check if the light has changed and send a push notification if it has
