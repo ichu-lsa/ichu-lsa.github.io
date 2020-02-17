@@ -437,18 +437,16 @@ function handleNotifications(event) {
 			request_img();
 		}
   	}
-  	/*
   	// check for color
-  	else if (bin.localeCompare("light::red")) {
+  	else if (bin.localeCompare("light::red") == 0) {
   		lightChanged(-1);
   	}
-  	else if (bin.localeCompare("light::green")) {
+  	else if (bin.localeCompare("light::green") == 0) {
   		lightChanged(1);
   	}
-  	else if (bin.localeCompare("light::none")) {
+  	else if (bin.localeCompare("light::none") == 0) {
   		lightChanged(0);
   	}
-  	//*/
   	else {
   		// push value into buffer list
   		total_size += value.byteLength;
