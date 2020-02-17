@@ -183,7 +183,6 @@ function evaluate_corners () {
 
 function scan()
 {
-	sound1.start(); // must start on gesture
 	console.log("Scanning...");
 	scan_button.innerHTML = connecting_str;
 	// set up options
@@ -308,6 +307,7 @@ function toggle_mark() {
 // start sound
 function toggle_sound() {
 	// switch between modes
+	sound1.start(); // must start on gesture
 	if (sound_on) {
 		sound_on = false;
 		sound_button.innerHTML = sound_off_str;
