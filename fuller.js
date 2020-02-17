@@ -437,6 +437,7 @@ function handleNotifications(event) {
 			request_img();
 		}
   	}
+  	/*
   	// check for color
   	else if (bin.localeCompare("light::red")) {
   		lightChanged(-1);
@@ -447,6 +448,7 @@ function handleNotifications(event) {
   	else if (bin.localeCompare("light::none")) {
   		lightChanged(0);
   	}
+  	//*/
   	else {
   		// push value into buffer list
   		total_size += value.byteLength;
