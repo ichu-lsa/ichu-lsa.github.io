@@ -222,8 +222,8 @@ function getCharacteristics(service) {
 		console.log("Getting Writer");
 		writer = characteristic;
 		send_hello();
-		// check properties // removing log for webBLE
-		// console.log("Writer Properties: " + writer.properties.write);
+		// check properties
+		console.log("Writer Properties: " + writer.properties.write);
 		toggle_button.style.visibility = "visible";
 		mark_button.style.visibility = "visible";
 		scan_button.innerHTML = connected_str;
@@ -396,6 +396,7 @@ function handleNotifications(event) {
   		let bigblob = new Blob(buffers, {type: "image/jpeg"});
   		let url = URL.createObjectURL(bigblob);
   		display.src = url;
+  		console.log("New Image URL: " + display.src);
 
   		// check final size
   		// console.log("Total Size: " + total_size);
