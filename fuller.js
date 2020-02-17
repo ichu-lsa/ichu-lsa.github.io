@@ -439,22 +439,13 @@ function handleNotifications(event) {
   	}
   	// check for color
   	else if (bin.localeCompare("light::red")) {
-  		if (light_status != -1) {
-  			sendPush();
-  		}
-  		light_status = -1;
+  		lightChanged(-1);
   	}
   	else if (bin.localeCompare("light::green")) {
-  		if (light_status != 1) {
-  			sendPush();
-  		}
-  		light_status = 1;
+  		lightChanged(1);
   	}
   	else if (bin.localeCompare("light::none")) {
-  		if (light_status != 0) {
-  			sendPush();
-  		}
-  		light_status = 0;
+  		lightChanged(0);
   	}
   	else {
   		// push value into buffer list
