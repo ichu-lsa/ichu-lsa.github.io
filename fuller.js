@@ -43,7 +43,7 @@ var total_size = 0;
 var running = false;
 
 // DEBUG, try showing the brc text
-brc.style.visibility = "visible";
+// brc.style.visibility = "visible";
 
 // get video button elements
 var toggle_button = document.getElementById("video");
