@@ -223,7 +223,7 @@ function getCharacteristics(service) {
 		writer = characteristic;
 		send_hello();
 		// check properties
-		console.log("Writer Properties: " + writer.properties.write);
+		// console.log("Writer Properties: " + writer.properties.write);
 		toggle_button.style.visibility = "visible";
 		mark_button.style.visibility = "visible";
 		scan_button.innerHTML = connected_str;
