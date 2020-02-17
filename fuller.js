@@ -401,6 +401,7 @@ function lightChanged(num) {
 	if (light_status != num) {
 		light_status = num;
 		sendPush();
+		console.log("Light Change: " + num);
 	}
 }
 
