@@ -49,6 +49,7 @@ volume.gain.value = 0.1;
 var sound1 = audio_player.createOscillator();
 sound1.type = "triangle";
 var sound_on = false;
+var audio_started = false; // there's no method to check whether or not audio is ready
 
 // connect audio things
 // sound1.connect(volume); // don't connect until ready to play
@@ -180,7 +181,11 @@ function evaluate_corners () {
 
 function scan()
 {
-	sound1.start(); // must start on gesture
+	// start the audio if it needs it
+	if (!audio_started){
+		sound1.start(); // must start on gesture
+		audio_started = true;
+	}
 	console.log("Scanning...");
 	scan_button.innerHTML = connecting_str;
 	// set up options
