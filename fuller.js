@@ -321,6 +321,7 @@ function sleep(ms) {
 
 // send hello message
 function send_hello() {
+	console.log("HELLO!!!!");
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
 	let value = "I'm new";
