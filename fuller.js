@@ -20,6 +20,9 @@ var bottom_right = [0,0];
 var rwidth = 0;
 var rheight = 0;
 
+// light status -1 = red, 0 = obstructed, 1 = green
+var light_status = -2; // wait for setup
+
 // get image
 var display = document.getElementById("draw_bg");
 
@@ -45,17 +48,11 @@ var volume = audio_player.createGain();
 volume.gain.value = 0.1;
 var sound1 = audio_player.createOscillator();
 sound1.type = "triangle";
+var sound_on = false;
 
 // connect audio things
 // sound1.connect(volume); // don't connect until ready to play
 volume.connect(audio_player.destination);
-
-// get sound button
-var sound_button = document.getElementById("sound");
-var sound_on = false;
-var sound_off_str = "WOOP WOOP WOOP";
-var sound_on_str = "STOP STOP STOP";
-sound_button.innerHTML = sound_off_str;
 
 // get video button elements
 var toggle_button = document.getElementById("video");
@@ -183,6 +180,7 @@ function evaluate_corners () {
 
 function scan()
 {
+	sound1.start(); // must start on gesture
 	console.log("Scanning...");
 	scan_button.innerHTML = connecting_str;
 	// set up options
@@ -307,15 +305,12 @@ function toggle_mark() {
 // start sound
 function toggle_sound() {
 	// switch between modes
-	sound1.start(); // must start on gesture
 	if (sound_on) {
 		sound_on = false;
-		sound_button.innerHTML = sound_off_str;
 		sound1.disconnect(volume);
 	}
 	else {
 		sound_on = true;
-		sound_button.innerHTML = sound_on_str;
 		sound1.connect(volume);
 	}
 }
@@ -390,6 +385,25 @@ function send_corners() {
 	})
 }
 
+// 1 second beep
+function beep() {
+	toggle_sound();
+	window.setTimeout(toggle_sound, 1000);
+}
+
+// send a push notification // TODO: actually implement this (just activates a beep for now)
+function sendPush() {
+	beep();
+}
+
+// check if the light has changed and send a push notification if it has
+function lightChanged(num) {
+	if (light_status != num) {
+		light_status = num;
+		sendPush();
+	}
+}
+
 // give reaction when characteristic changes
 function handleNotifications(event) {
 	// get value
@@ -397,7 +411,7 @@ function handleNotifications(event) {
 
 	// convert to string
   	let bin = '';
-  	if (value.byteLength == 10) {
+  	if (value.byteLength <= 20) {
 	  	for (a = 0; a < value.byteLength; a++)
 	  	{
 	  		bin += String.fromCharCode(value.getInt8(a));
@@ -422,6 +436,25 @@ function handleNotifications(event) {
 		if (running && !marking) {
 			request_img();
 		}
+  	}
+  	// check for color
+  	else if (bin.localeCompare("light::red")) {
+  		if (light_status != -1) {
+  			sendPush();
+  		}
+  		light_status = -1;
+  	}
+  	else if (bin.localeCompare("light::green")) {
+  		if (light_status != 1) {
+  			sendPush();
+  		}
+  		light_status = 1;
+  	}
+  	else if (bin.localeCompare("light::none")) {
+  		if (light_status != 0) {
+  			sendPush();
+  		}
+  		light_status = 0;
   	}
   	else {
   		// push value into buffer list
