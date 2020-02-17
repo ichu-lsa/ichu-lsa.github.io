@@ -222,8 +222,8 @@ function getCharacteristics(service) {
 		console.log("Getting Writer");
 		writer = characteristic;
 		send_hello();
-		// check properties
-		console.log("Writer Properties: " + writer.properties.write);
+		// check properties // removing log for webBLE
+		// console.log("Writer Properties: " + writer.properties.write);
 		toggle_button.style.visibility = "visible";
 		mark_button.style.visibility = "visible";
 		scan_button.innerHTML = connected_str;
