@@ -404,7 +404,7 @@ function handleNotifications(event) {
   		console.log("New Image URL: " + display.src);
 
   		// check final size
-  		// console.log("Total Size: " + total_size);
+  		console.log("Total Size: " + total_size); // apple ios is limit to ~14000?
 
   		// reset
   		buffers = [];
