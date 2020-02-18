@@ -393,10 +393,7 @@ function handleNotifications(event) {
 
   	// check if it's the end string
   	if (bin.localeCompare("aaaaaaaaaa") == 0) {
-  		// make blob
-  		let bigblob = new Blob(buffers, {type: "image/jpeg"});
-  		let url = URL.createObjectURL(bigblob);
-  		// URL.revokeObjectURL(display.src); // trash the old image
+  		// change the display image
   		display.src = "data:image/png;base64," + buffer_str;
   		// console.log("New Image URL: " + display.src);
   		console.log("Got a new image: " + total_size);
