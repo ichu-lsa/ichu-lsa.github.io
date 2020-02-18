@@ -309,7 +309,7 @@ async function get_one_image() {
 	})
 
 	// keep waiting until image makes it into the display
-	while (display.src.substring(0,5).localeCompare("blob:") != 0) {
+	while (display.src.substring(0,5).localeCompare("data:") != 0) {
 		await sleep(100); // .1 seconds
 	}
 	console.log("Drawing on Display: " + display.src);
