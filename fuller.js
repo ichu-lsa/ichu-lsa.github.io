@@ -36,7 +36,7 @@ var my_val = "";
 var my_img;
 
 // blob stuff
-var buffer_str = "";
+var buffers = [];
 var total_size = 0;
 
 // loop
@@ -309,7 +309,7 @@ async function get_one_image() {
 	})
 
 	// keep waiting until image makes it into the display
-	while (display.src.substring(0,5).localeCompare("data:") != 0) {
+	while (display.src.substring(0,5).localeCompare("blob:") != 0) {
 		await sleep(100); // .1 seconds
 	}
 	console.log("Drawing on Display: " + display.src);
@@ -387,22 +387,27 @@ function handleNotifications(event) {
 
 	// convert to string
   	let bin = '';
-  	for (a = 0; a < value.byteLength; a++) {
-  		bin += String.fromCharCode(value.getInt8(a));
+  	if (value.byteLength <= 20) {
+	  	for (a = 0; a < value.byteLength; a++)
+	  	{
+	  		bin += String.fromCharCode(value.getInt8(a));
+	  	}
   	}
 
   	// check if it's the end string
   	if (bin.localeCompare("aaaaaaaaaa") == 0) {
-  		// change the display image
-  		display.src = "data:image/png;base64," + buffer_str;
-  		// console.log("New Image URL: " + display.src);
-  		console.log("Got a new image: " + total_size);
+  		// make blob
+  		let bigblob = new Blob(buffers, {type: "image/jpeg"});
+  		let url = window.URL.createObjectURL(bigblob);
+  		// URL.revokeObjectURL(display.src); // trash the old image
+  		display.src = url;
+  		console.log("New Image URL: " + display.src);
 
   		// check final size
   		// console.log("Total Size: " + total_size);
 
   		// reset
-  		buffer_str = "";
+  		buffers = [];
   		total_size = 0;
 
   		// keep going
@@ -423,7 +428,7 @@ function handleNotifications(event) {
   	else {
   		// push value into buffer list
   		total_size += value.byteLength;
-  		buffer_str += bin;
+  		buffers.push(value.buffer);
   	}
 
   	// draw image // the image on display doesn't actually update until the next iteration
