@@ -143,9 +143,11 @@ function rectDrag(event) {
 		end = [x,y];
 		dragging = false;
 		evaluate_corners();
+		console.log("Pointer up, revealing send_button");
 		send_button.style.visibility = "visible";
 		send_button.disabled = false;
 		send_button.innerHTML = "Send";
+		console.log("end of pointer up");
 	}
 }
 
@@ -312,6 +314,7 @@ async function get_one_image() {
 	}
 	console.log("Drawing on Display: " + display.src);
 	context.drawImage(display, 0, 0);
+	console.log("Finished Drawing on display");
 }
 
 // sleep (milliseconds)
@@ -321,7 +324,7 @@ function sleep(ms) {
 
 // send hello message
 function send_hello() {
-	console.log("HELLO!!!!");
+	console.log("HELLO!!!!"); // I strongly suspect that webBLE caches javascript, but not html // HERE
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
 	let value = "I'm new";
