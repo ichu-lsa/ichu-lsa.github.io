@@ -36,7 +36,7 @@ var my_val = "";
 var my_img;
 
 // blob stuff
-var buffers = [];
+var buffer_str = "";
 var total_size = 0;
 
 // loop
@@ -387,11 +387,8 @@ function handleNotifications(event) {
 
 	// convert to string
   	let bin = '';
-  	if (value.byteLength <= 20) {
-	  	for (a = 0; a < value.byteLength; a++)
-	  	{
-	  		bin += String.fromCharCode(value.getInt8(a));
-	  	}
+  	for (a = 0; a < value.byteLength; a++) {
+  		bin += String.fromCharCode(value.getInt8(a));
   	}
 
   	// check if it's the end string
@@ -399,14 +396,16 @@ function handleNotifications(event) {
   		// make blob
   		let bigblob = new Blob(buffers, {type: "image/jpeg"});
   		let url = URL.createObjectURL(bigblob);
-  		display.src = url;
-  		console.log("New Image URL: " + display.src);
+  		// URL.revokeObjectURL(display.src); // trash the old image
+  		display.src = "data:image/png;base64," + buffer_str;
+  		// console.log("New Image URL: " + display.src);
+  		console.log("Got a new image: " + total_size);
 
   		// check final size
   		// console.log("Total Size: " + total_size);
 
   		// reset
-  		buffers = [];
+  		buffer_str = "";
   		total_size = 0;
 
   		// keep going
@@ -427,7 +426,7 @@ function handleNotifications(event) {
   	else {
   		// push value into buffer list
   		total_size += value.byteLength;
-  		buffers.push(value.buffer);
+  		buffer_str += bin;
   	}
 
   	// draw image // the image on display doesn't actually update until the next iteration
