@@ -18,6 +18,7 @@
 		<style>
 			#container { position: relative; }
 			#imageView { border: 1px solid #000; }
+			#imageView { touch-action: none; }
 		</style>
 		<!-- set up a canvas -->
 		<body>
@@ -28,12 +29,13 @@
 
 			<!-- set up drawing stuff -->
 			<div id="container">
-				<canvas id="imageView" width="320" height="240"></canvas>
+				<canvas id="imageView" width="320" height="240"> <
+				</canvas>
 			</div>
-			<img id="draw_bg" src="" style="display:none">
+			<img id="draw_bg" src="" style="display:block">
 			<p id="top_left">Top Left: [0,0]</p>
 			<p id="bottom_right">Bottom Right: [0,0]</p>
-			<p>Version 1.28</p>
+			<p>Version 1.29</p>
 			<button id="send_corners" onclick="send_corners()">Send</button>
 			<script src = "fuller.js"></script>
 		</body>
