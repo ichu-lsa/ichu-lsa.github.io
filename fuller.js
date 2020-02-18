@@ -84,7 +84,7 @@ var reader_uuid = '6e400003-b5a3-f393-e0a9-e50e24dcca9e';
 
 function init() {
 	// attach listener to the canvas
-	console.log("Starting Up Version 1.27");
+	console.log("Starting Up Version 1.28");
 	canvas.addEventListener('pointermove', rectDrag, false);
 	canvas.addEventListener('pointerdown', rectDrag, false);
 	canvas.addEventListener('pointerup', rectDrag, false);
@@ -426,7 +426,7 @@ function handleNotifications(event) {
   	}
   	else {
   		// push value into buffer list
-  		console.log("Packet Size: " + value.byteLength);
+  		// console.log("Packet Size: " + value.byteLength);
   		total_size += value.byteLength;
   		buffers.push(value.buffer);
   	}
