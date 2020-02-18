@@ -84,7 +84,7 @@ var reader_uuid = '6e400003-b5a3-f393-e0a9-e50e24dcca9e';
 
 function init() {
 	// attach listener to the canvas
-	console.log("Starting Up...");
+	console.log("Starting Up Version 1.27");
 	canvas.addEventListener('pointermove', rectDrag, false);
 	canvas.addEventListener('pointerdown', rectDrag, false);
 	canvas.addEventListener('pointerup', rectDrag, false);
@@ -143,11 +143,11 @@ function rectDrag(event) {
 		end = [x,y];
 		dragging = false;
 		evaluate_corners();
-		console.log("Pointer up, revealing send_button");
+		// console.log("Pointer up, revealing send_button");
 		send_button.style.visibility = "visible";
 		send_button.disabled = false;
 		send_button.innerHTML = "Send";
-		console.log("end of pointer up");
+		// console.log("end of pointer up");
 	}
 }
 
@@ -263,7 +263,7 @@ function request_img() {
 	let value = "get_image";
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
-		console.log("Making Image Request: " + value);
+		// console.log("Making Image Request: " + value);
 	})
 	.catch(error => {
 		console.log("Request Error: " + error); // sometimes gets a "not supported" error
@@ -324,7 +324,6 @@ function sleep(ms) {
 
 // send hello message
 function send_hello() {
-	console.log("HELLO!!!!"); // I strongly suspect that webBLE caches javascript, but not html // HERE
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
 	let value = "I'm new";
@@ -401,7 +400,7 @@ function handleNotifications(event) {
   		let url = window.URL.createObjectURL(bigblob);
   		// URL.revokeObjectURL(display.src); // trash the old image
   		display.src = url;
-  		console.log("New Image URL: " + display.src);
+  		// console.log("New Image URL: " + display.src);
 
   		// check final size
   		console.log("Total Size: " + total_size); // apple ios is limit to ~14000?
@@ -427,6 +426,7 @@ function handleNotifications(event) {
   	}
   	else {
   		// push value into buffer list
+  		console.log("Packet Size: " + value.byteLength);
   		total_size += value.byteLength;
   		buffers.push(value.buffer);
   	}
