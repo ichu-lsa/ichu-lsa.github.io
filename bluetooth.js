@@ -12,6 +12,19 @@ function scan()
 {
 	// start the audio if it needs it
 	if (!audio_started){
+		// initialize all audio things
+		audio_player = new AudioContext();
+		volume = audio_player.createGain();
+		volume.gain.value = 1.0;
+		volume.connect(audio_player.destination);
+		sound1 = audio_player.createOscillator();
+		sound1.type = "triangle";
+
+		// debug
+		console.log("Volume: " + volume.gain.value);
+		console.log("Sound Type: " + sound1.type);
+
+		// start audio
 		sound1.start(); // must start on gesture
 		audio_started = true;
 		// have to resume for ios
