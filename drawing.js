@@ -1,6 +1,6 @@
 function init() {
 	// attach listener to the canvas
-	console.log("Starting Up Version 1.51");
+	console.log("Starting Up Version 1.52");
 	canvas.addEventListener('pointermove', rectDrag, false);
 	canvas.addEventListener('pointerdown', rectDrag, false);
 	canvas.addEventListener('pointerup', rectDrag, false);
@@ -43,8 +43,8 @@ function rectDrag(event) {
 	// get relative sizes
 	scalex = display.width / canvas.scrollWidth;
 	scaley = display.height / canvas.scrollHeight;
-	x *= scalex;
-	y *= scaley;
+	x = Math.round(x * scalex);
+	y = Math.round(y * scaley);
 
 	// check for event type
 	// console.log("Event Type: " + event.type);
@@ -58,7 +58,7 @@ function rectDrag(event) {
 		if (dragging) {
 			// get pos and clear
 			end = [x,y];
-			context.drawImage(display,0,0);
+			context.drawImage(display);
 
 			// get corners and dims
 			evaluate_corners();
