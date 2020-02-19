@@ -1,5 +1,4 @@
 // get ref to canvas
-var container = document.getElementById("container");
 var canvas = document.getElementById("imageView");
 var context = canvas.getContext('2d');
 context.strokeStyle = "#FF0000";
