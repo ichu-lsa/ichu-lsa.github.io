@@ -313,7 +313,7 @@ async function get_one_image() {
 		await sleep(100); // .1 seconds
 	}
 	console.log("Drawing on Display: " + display.src);
-	context.drawImage(display, 0, 0);
+	context.drawImage(display, 0, 0, context.width, context.height, 0, 0, context.width, context.height);
 	console.log("Finished Drawing on display");
 }
 
