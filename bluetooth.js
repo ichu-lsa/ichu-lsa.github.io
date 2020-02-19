@@ -16,8 +16,10 @@ function scan()
 		audio_started = true;
 		// have to resume for ios
 		if (audio_player.state === 'suspended') {
+			console.log("RESUMING AUDIO");
 			audio_player.resume();
 		}
+		console.log("Audio State: " + audio_player.state);
 	}
 
 	// start scan
