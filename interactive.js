@@ -34,9 +34,10 @@ function request_img() {
 	.catch(error => {
 		console.log("Request Error: " + error); // sometimes gets a "not supported" error
 
-		// keep going
+		// keep going // unfortunately this needs to be here
+		// just deal with the console messages
 		if (running && !marking) {
-			// request_img();
+			request_img();
 		}
 	})
 }
