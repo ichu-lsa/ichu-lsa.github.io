@@ -14,12 +14,16 @@ function scan()
 	if (!audio_started){
 		sound1.start(); // must start on gesture
 		audio_started = true;
+		// have to resume for ios
+		if (audio_player.state === 'suspended') {
+			audio_player.resume();
+		}
 	}
 
 	// start scan
 	console.log("Scanning...");
 	scan_button.innerHTML = connecting_str;
-	
+
 	// set up options
 	let options = {};
   	options.acceptAllDevices = true;
