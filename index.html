@@ -20,7 +20,7 @@
 		<style>
 			#container { position: relative; }
 			#imageView { border: 1px solid #000; }
-			#imageView { touch-action: none; }
+			#imageView { touch-action: auto; } /* change to none in .js when marking */
 			
 			/* modify canvas size to match viewport */
 			@media screen and (orientation:portrait) {
@@ -45,7 +45,7 @@
 			<img id="draw_bg" src="" style="display:none">
 			<p id="top_left">Top Left: [0,0]</p>
 			<p id="bottom_right">Bottom Right: [0,0]</p>
-			<p>Version 1.48</p>
+			<p>Version 1.49</p>
 			<button id="send_corners" onclick="send_corners()">Send</button>
 			<!-- <script src = "fuller.js"></script> -->
 			<script src = "references.js"></script>
