@@ -21,7 +21,14 @@
 			#container { position: relative; }
 			#imageView { border: 1px solid #000; }
 			#imageView { touch-action: none; }
-			#imageView { width:60vw; padding-top:0.66%; } /* 3:2 aspect */
+			
+			/* modify canvas size to match viewport */
+			@media screen and (orientation:portrait) {
+				#imageView { width:60vw; padding-top:0.66%; } /* 3:2 aspect */
+			}
+			@media screen and (orientation:landscape) {
+				#imageView { height:60vw; padding-top:66.66%; } /* 3:2 aspect */
+			}
 		</style>
 		<!-- set up a canvas -->
 		<body>
@@ -38,7 +45,7 @@
 			<img id="draw_bg" src="" style="display:none">
 			<p id="top_left">Top Left: [0,0]</p>
 			<p id="bottom_right">Bottom Right: [0,0]</p>
-			<p>Version 1.37</p>
+			<p>Version 1.38</p>
 			<button id="send_corners" onclick="send_corners()">Send</button>
 			<script src = "fuller.js"></script>
 		</body>
