@@ -49,6 +49,7 @@ function toggle_mark() {
 		marking = false;
 		mark_button.innerHTML = mark_off_str;
 		mark_button.disabled = false;
+		canvas.setAttribute("style", "touch-action:auto");
 	}
 	else {
 		marking = true;
@@ -57,6 +58,7 @@ function toggle_mark() {
 		tlc.style.visibility = "visible";
 		brc.style.visibility = "visible";
 		toggle_button.innerHTML = start_str;
+		canvas.setAttribute("style", "touch-action:none");
 		get_one_image();
 	}
 }
