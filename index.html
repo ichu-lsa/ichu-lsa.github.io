@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<!-- add viewport support -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Favicon Stuff -->
 		<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
@@ -19,7 +21,7 @@
 			#container { position: relative; }
 			#imageView { border: 1px solid #000; }
 			#imageView { touch-action: none; }
-			#imageView { width: 90%; height: 90%; }
+			/* #imageView { width: 90%; height: 90%; } */
 		</style>
 		<!-- set up a canvas -->
 		<body>
@@ -36,7 +38,7 @@
 			<img id="draw_bg" src="" style="display:none">
 			<p id="top_left">Top Left: [0,0]</p>
 			<p id="bottom_right">Bottom Right: [0,0]</p>
-			<p>Version 1.32</p>
+			<p>Version 1.33</p>
 			<button id="send_corners" onclick="send_corners()">Send</button>
 			<script src = "fuller.js"></script>
 		</body>
