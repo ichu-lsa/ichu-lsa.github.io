@@ -36,7 +36,7 @@ function request_img() {
 
 		// keep going
 		if (running && !marking) {
-			request_img();
+			// request_img();
 		}
 	})
 }
