@@ -69,7 +69,7 @@ var send_button = document.getElementById("send_corners");
 send_button.style.visibility = "hidden";
 
 // make an audio thing
-var AudioContext = AudioContext || webkitAudioContext;
+var AudioContext = window.AudioContext || window.webkitAudioContext;
 /*
 var audio_player = new AudioContext();
 console.log("Initial Audio State: " + audio_player.state);
