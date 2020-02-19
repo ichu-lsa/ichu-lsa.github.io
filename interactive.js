@@ -120,7 +120,7 @@ function send_corners() {
 
 // send a push notification // TODO: actually implement this (just activates a beep for now)
 function sendPush() {
-	// do nothing
+	beep();
 }
 
 // check if the light has changed and send a push notification if it has
