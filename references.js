@@ -71,6 +71,7 @@ send_button.style.visibility = "hidden";
 // make an audio thing
 var AudioContext = window.AudioContext || webkitAudioContext;
 var audio_player = new AudioContext();
+console.log("Initial Audio State: " + audio_player.state);
 var volume = audio_player.createGain();
 volume.gain.value = 0.1;
 console.log("Volume: " + volume.gain.value);
