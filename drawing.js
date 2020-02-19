@@ -12,8 +12,12 @@ window.onload = init;
 function rectDrag(event) {
 	// only use if marking
 	if (!marking) {
+		// allow scrolling
+		canvas.setAttribute("style", "touch-action:auto");
 		return;
 	}
+	// stop scrolling
+	canvas.setAttribute("style", "touch-action:none");
 
 	// get mouse position
 	var x = -1;
