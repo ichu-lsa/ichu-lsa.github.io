@@ -72,10 +72,12 @@ send_button.style.visibility = "hidden";
 // var AudioContext = window.AudioContext;// || window.webkitAudioContext;
 var audio_player = new AudioContext();
 var volume = audio_player.createGain();
-volume.gain.value = 0.5;
-console.log("Volume: " + volume.gain.value);
+volume.gain.value = 0.1;
 var sound1 = audio_player.createOscillator();
 sound1.type = "triangle";
-console.log("Oscillator: " + sound1.type);
 var sound_on = false;
 var audio_started = false; // there's no method to check whether or not audio is ready
+
+// connect audio things
+// sound1.connect(volume); // don't connect until ready to play
+volume.connect(audio_player.destination);
