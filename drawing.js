@@ -38,13 +38,19 @@ function rectDrag(event) {
 	if (x == -1 || y == -1) {
 		return;
 	}
-	event.preventDefault();
+	event.preventDefault(); // not sure if this doesn anything
+
+	// get relative sizes
+	scalex = canvas.parent().width() / canvas.width();
+	scaley = canvas.parent().height() / canvas.height();
 
 	// check for event type
 	// console.log("Event Type: " + event.type);
 	if (event.type === "pointerdown") {
 		dragging = true;
 		start = [x,y];
+		console.log("Scale Width: " + scalex);
+		console.log("Scale Height: " + scaley);
 	}
 	if (event.type === "pointermove") {
 		if (dragging) {
@@ -56,7 +62,7 @@ function rectDrag(event) {
 			evaluate_corners();
 
 			// draw
-			context.strokeRect(top_left[0], top_left[1], rwidth, rheight);
+			context.strokeRect(top_left[0] * scalex, top_left[1] * scaley, rwidth * scalex, rheight * scaley);
 		}
 	}
 	if (event.type === "pointerup") {
