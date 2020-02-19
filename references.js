@@ -73,7 +73,7 @@ var AudioContext = window.AudioContext || webkitAudioContext;
 var audio_player = new AudioContext();
 console.log("Initial Audio State: " + audio_player.state);
 var volume = audio_player.createGain();
-volume.gain.value = 0.1;
+volume.gain.value = 1.0; // change to 0.2
 console.log("Volume: " + volume.gain.value);
 var sound1 = audio_player.createOscillator();
 sound1.type = "triangle";
@@ -83,3 +83,4 @@ var audio_started = false; // there's no method to check whether or not audio is
 // connect audio things
 // sound1.connect(volume); // don't connect until ready to play
 volume.connect(audio_player.destination);
+console.log("Sound Type: " + sound1.type); // debug stuff
