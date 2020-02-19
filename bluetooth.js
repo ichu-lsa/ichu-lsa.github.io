@@ -10,8 +10,16 @@ var reader_uuid = '6e400003-b5a3-f393-e0a9-e50e24dcca9e';
 
 function scan()
 {
+	// start the audio if it needs it
+	if (!audio_started){
+		sound1.start(); // must start on gesture
+		audio_started = true;
+	}
+
+	// start scan
 	console.log("Scanning...");
 	scan_button.innerHTML = connecting_str;
+	
 	// set up options
 	let options = {};
   	options.acceptAllDevices = true;
