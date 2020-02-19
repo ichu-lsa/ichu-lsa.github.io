@@ -69,10 +69,11 @@ var send_button = document.getElementById("send_corners");
 send_button.style.visibility = "hidden";
 
 // make an audio thing
-var AudioContext = window.AudioContext;// || window.webkitAudioContext;
+// var AudioContext = window.AudioContext;// || window.webkitAudioContext;
 var audio_player = new AudioContext();
 var volume = audio_player.createGain();
 volume.gain.value = 0.1;
+console.log("Volume: " + volume.gain.value);
 var sound1 = audio_player.createOscillator();
 sound1.type = "triangle";
 var sound_on = false;
