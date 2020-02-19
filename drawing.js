@@ -1,6 +1,6 @@
 function init() {
 	// attach listener to the canvas
-	console.log("Starting Up Version 1.28");
+	console.log("Starting Up Version 1.47");
 	canvas.addEventListener('pointermove', rectDrag, false);
 	canvas.addEventListener('pointerdown', rectDrag, false);
 	canvas.addEventListener('pointerup', rectDrag, false);
@@ -41,8 +41,8 @@ function rectDrag(event) {
 	event.preventDefault(); // not sure if this doesn anything
 
 	// get relative sizes
-	scalex = canvas.parent().width() / canvas.width();
-	scaley = canvas.parent().height() / canvas.height();
+	scalex = container.scrollWidth / canvas.scrollWidth;
+	scaley = container.scrollHeight / canvas.scrollHeight;
 
 	// check for event type
 	// console.log("Event Type: " + event.type);
