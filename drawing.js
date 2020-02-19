@@ -1,6 +1,6 @@
 function init() {
 	// attach listener to the canvas
-	console.log("Starting Up Version 1.49");
+	console.log("Starting Up Version 1.50");
 	canvas.addEventListener('pointermove', rectDrag, false);
 	canvas.addEventListener('pointerdown', rectDrag, false);
 	canvas.addEventListener('pointerup', rectDrag, false);
@@ -62,8 +62,8 @@ function rectDrag(event) {
 			evaluate_corners();
 
 			// draw
-			context.strokeRect(top_left[0], top_left[1], rwidth, rheight);
-			// context.strokeRect(top_left[0] * scalex, top_left[1] * scaley, rwidth * scalex, rheight * scaley);
+			// context.strokeRect(top_left[0], top_left[1], rwidth, rheight);
+			context.strokeRect(top_left[0] * scalex, top_left[1] * scaley, rwidth * scalex, rheight * scaley);
 		}
 	}
 	if (event.type === "pointerup") {
