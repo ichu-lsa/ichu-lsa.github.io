@@ -15,7 +15,8 @@ function toggle_sound() {
 
 // 1 second beep
 function beep() {
-	console.log("Beep Audio: " + audio_player.state)
+	console.log("Beep Audio: " + audio_player.state);
+	console.log("Beep Volume: " + volume.gain.value);
 	toggle_sound();
 	window.setTimeout(toggle_sound, 1000);
 }
