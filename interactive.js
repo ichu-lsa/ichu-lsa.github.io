@@ -37,7 +37,7 @@ function request_img() {
 
 		// keep going // unfortunately this needs to be here
 		// just deal with the console messages
-		if (running && !marking) {
+		if (running) {
 			request_img();
 		}
 	})

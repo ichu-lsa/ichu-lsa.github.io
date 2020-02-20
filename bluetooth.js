@@ -140,7 +140,7 @@ function handleNotifications(event) {
   		total_size = 0;
 
   		// keep going
-		if (running && !marking) {
+		if (running) {
 			request_img();
 		}
   	}
