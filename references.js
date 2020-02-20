@@ -79,6 +79,13 @@ var last_light_time = getTime();
 var green_time = 0;
 var trigger_time_ms = 3000;
 
+// get ref to alarm volume slider
+var volume_slider = document.getElementById("volume_slider");
+volume_slider.oninput = function () {
+	volume.gain.value = this.value;
+	console.log("Slider Volume: " + volume.gain.value);
+}
+
 // just a general function for retrieving the time
 function getTime() {
 	time = new Date();

@@ -129,6 +129,7 @@ function stopAlarm() {
 		alarm_active = false;
 		alarm_button.innerHTML = "Acknowledge";
 		alarm_button.disabled = true; // allow the lightWatch to re-enable
+		green_time = 0;
 	}
 	else {
 		// kill
@@ -136,4 +137,9 @@ function stopAlarm() {
 		alarm_active = false;
 		alarm_button.innerHTML = "Reset";
 	}
+}
+
+// test the alarm
+function testAlarm() {
+	beep(500);
 }
