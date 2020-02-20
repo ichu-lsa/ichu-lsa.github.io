@@ -163,6 +163,7 @@ function lightWatch(num) {
 // stop the alarm // can only kill the alarm once for now
 function stopAlarm() {
 	// set the text of the alarm
+	console.log("Killing the Alarm");
 	kill_alarm = true;
 	alarm_button.disabled = true;
 }

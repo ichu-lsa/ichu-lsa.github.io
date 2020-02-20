@@ -24,7 +24,7 @@ function beep(duration_ms) {
 function start_alarm() {
 	// set vars
 	console.log("Alarm Called ^^^");
-	let beep_time = 250; // .25 seconds
+	let beep_time = 200; // .20 seconds
 	let curr_time = getTime();
 	let diff_time = curr_time - last_beep;
 	console.log("Diff Time: " + diff_time);
@@ -40,5 +40,10 @@ function start_alarm() {
 		// recall
 		console.log("Recalling")
 		setTimeout(start_alarm, beep_time * 2 - (diff_time));
+	}
+	else {
+		console.log("Alarm Inactive");
+		console.log("Alarm_Active: " + alarm_active);
+		console.log("Kill_Alarm: " + kill_alarm);
 	}
 }
