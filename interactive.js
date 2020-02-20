@@ -111,11 +111,12 @@ function lightWatch(num) {
 	last_light_time = getTime();
 
 	// modify the alarm button
-	if (alarm_active && !kill_alarm) {
-		alarm_button.style.display = "block";
+	// if the alarm isn't active, and the kill_alarm is off, hide
+	if (!alarm_active && !kill_alarm) {
+		alarm_button.style.display = "none";
 	}
 	else {
-		alarm_button.style.display = "none";
+		alarm_button.style.display = "block";
 	}
 }
 
