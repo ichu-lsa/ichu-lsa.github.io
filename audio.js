@@ -25,6 +25,7 @@ function start_alarm() {
 	// set vars
 	console.log("Alarm Called ^^^");
 	let beep_time = 250; // .25 seconds
+	time = new Date(); // have to do this
 	let curr_time = time.getTime();
 	let diff_time = curr_time - last_beep;
 	console.log("Diff Time: " + diff_time);

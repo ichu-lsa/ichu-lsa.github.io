@@ -107,6 +107,8 @@ function send_corners() {
 		// disable the button and flip mark
 		send_button.disabled = true;
 		send_button.innerHTML = "Sent!";
+		alarm_button.disabled = true;
+		alarm_button.style.display = "block";
 		toggle_mark();
 	})
 	.catch(error => {

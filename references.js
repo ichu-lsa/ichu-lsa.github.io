@@ -62,6 +62,10 @@ var marking = false;
 var send_button = document.getElementById("send_corners");
 send_button.style.visibility = "hidden";
 
+// get alarm button
+var alarm_button = document.getElementById("stop_alarm");
+alarm_button.style.display = "none";
+
 // make an audio thing
 var AudioContext = window.AudioContext || window.webkitAudioContext;
 
