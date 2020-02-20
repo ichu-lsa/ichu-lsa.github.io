@@ -19,6 +19,7 @@ function toggle_video() {
 		toggle_button.innerHTML = stop_str;
 		console.log("Starting Video...");
 		request_img();
+		last_light_time = getTime();
 	}
 }
 
@@ -143,6 +144,20 @@ function lightChanged(num) {
 		sendPush();
 		console.log("Light Change: " + num);
 	}
+}
+
+// light watcher
+function lightWatch(num) {
+	if (num == 1) {
+		green_time += getTime() - last_light_time;
+		if (green_time > trigger_time && !alarm_active) {
+			start_alarm();
+		}
+	}
+	if (num == -1) {
+		green_time = 0;
+	}
+	last_light_time = getTime();
 }
 
 // stop the alarm // can only kill the alarm once for now

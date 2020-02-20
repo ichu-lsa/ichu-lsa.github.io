@@ -150,13 +150,13 @@ function handleNotifications(event) {
   	}
   	// check for color
   	else if (bin.localeCompare("light::red") == 0) {
-  		lightChanged(-1);
+  		lightWatch(-1);
   	}
   	else if (bin.localeCompare("light::green") == 0) {
-  		lightChanged(1);
+  		lightWatch(1);
   	}
   	else if (bin.localeCompare("light::none") == 0) {
-  		lightChanged(0);
+  		lightWatch(0);
   	}
   	else {
   		// push value into buffer list

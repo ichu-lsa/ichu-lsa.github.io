@@ -80,7 +80,12 @@ var audio_started = false; // there's no method to check whether or not audio is
 var kill_alarm = false;
 var alarm_active = false;
 var time = new Date();
-var last_beep = time.getTime();
+var last_beep = getTime();
+
+// keep track of how long a green light has been on
+var last_light_time = getTime();
+var green_time = 0;
+var trigger_time_sec = 3.0;
 
 // just a general function for retrieving the time
 function getTime() {
