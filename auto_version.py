@@ -10,7 +10,9 @@ js_target = "drawing.js";
 
 # set version number
 major_version = 1;
-version = 91;
+version = 92;
+
+# calculate strings
 last_version = version - 1;
 curr = versionStr(major_version, version);
 prev = versionStr(major_version, last_version);

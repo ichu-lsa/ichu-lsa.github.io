@@ -15,7 +15,6 @@ function toggle_sound() {
 
 // 1 second beep
 function beep(duration_ms) {
-	// console.log("Beep Volume: " + volume.gain.value);
 	toggle_sound();
 	window.setTimeout(toggle_sound, duration_ms);
 }
@@ -23,7 +22,6 @@ function beep(duration_ms) {
 // start alarm listener
 function start_alarm() {
 	// set vars
-	console.log("Alarm Called ^^^");
 	let beep_time = 200; // .20 seconds
 	let curr_time = getTime();
 	let diff_time = curr_time - last_beep;
@@ -35,7 +33,6 @@ function start_alarm() {
 			last_beep = curr_time;
 		}
 		// recall
-		// console.log("Recalling")
 		setTimeout(start_alarm, beep_time * 2 - (diff_time));
 	}
 }

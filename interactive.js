@@ -12,12 +12,12 @@ function toggle_video() {
 	if (running) {
 		running = false;
 		toggle_button.innerHTML = start_str;
-		console.log("Stopping Video...");
+		// console.log("Stopping Video...");
 	}
 	else {
 		running = true;
 		toggle_button.innerHTML = stop_str;
-		console.log("Starting Video...");
+		// console.log("Starting Video...");
 		request_img();
 		last_light_time = getTime();
 	}
@@ -33,7 +33,7 @@ function request_img() {
 		// console.log("Making Image Request: " + value);
 	})
 	.catch(error => {
-		console.log("Request Error: " + error); // sometimes gets a "not supported" error
+		// console.log("Request Error: " + error); // sometimes gets a "not supported" error
 
 		// keep going // unfortunately this needs to be here
 		// just deal with the console messages
@@ -69,10 +69,10 @@ async function get_one_image() {
 	let value = "get_image";
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
-		console.log("Making Image Request: " + value);
+		// console.log("Making Image Request: " + value);
 	})
 	.catch(error => {
-		console.log("Request Error: " + error); // sometimes gets a "not supported" error
+		// console.log("Request Error: " + error); // sometimes gets a "not supported" error
 		get_one_image();
 	})
 
@@ -80,9 +80,9 @@ async function get_one_image() {
 	while (display.src.substring(0,5).localeCompare("blob:") != 0) {
 		await sleep(100); // .1 seconds
 	}
-	console.log("Drawing on Display: " + display.src);
+	// console.log("Drawing on Display: " + display.src);
 	context.drawImage(display, 0, 0);
-	console.log("Finished Drawing on display");
+	// console.log("Finished Drawing on display");
 }
 
 // sleep (milliseconds)
@@ -104,7 +104,7 @@ function send_corners() {
 	value += " " + bottom_right[0] + " " + bottom_right[1];
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
-		console.log("Sending Corner Data: " + value);
+		// console.log("Sending Corner Data: " + value);
 		// disable the button and flip mark
 		send_button.disabled = true;
 		send_button.innerHTML = "Sent!";
@@ -113,37 +113,10 @@ function send_corners() {
 		toggle_mark();
 	})
 	.catch(error => {
-		console.log("Send_Corners Error: " + error); // sometimes gets a "not supported" error
+		// console.log("Send_Corners Error: " + error); // sometimes gets a "not supported" error
 		// keep trying to send until it works
 		send_corners();
 	})
-}
-
-// send a push notification
-// push notifications are not available for iOS, just use an alarm
-function sendPush() {
-	// if green, start alarm
-	if (light_status == 1) {
-		console.log("Starting Alarm!!!");
-		alarm_active = true;
-		start_alarm();
-
-		// enable the alarm_button
-		alarm_button.disabled = false;
-	}
-	else if (alarm_active) {
-		console.log("Stopping Alarm...");
-		alarm_active = false;
-	}
-}
-
-// check if the light has changed and send a push notification if it has
-function lightChanged(num) {
-	if (light_status != num) {
-		light_status = num;
-		sendPush();
-		console.log("Light Change: " + num);
-	}
 }
 
 // light watcher
@@ -167,9 +140,6 @@ function lightWatch(num) {
 
 // stop the alarm // can only kill the alarm once for now
 function stopAlarm() {
-	// set the text of the alarm
-	console.log("Killing the Alarm");
-	
 	// check the kill_alarm state
 	if (kill_alarm) {
 		// unkill
@@ -177,8 +147,11 @@ function stopAlarm() {
 		alarm_button.innerHTML = "stop alarm";
 	}
 	else {
+		// set the text of the alarm
+		// console.log("Killing the Alarm");
 		// kill
 		kill_alarm = true;
+		alarm_active = false;
 		alarm_button.innerHTML = "reset alarm";
 	}
 }

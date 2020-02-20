@@ -21,19 +21,13 @@ function scan()
 		sound1.type = "triangle";
 		sound1.frequency.value = 880; // A5
 
-		// debug
-		console.log("Volume: " + volume.gain.value);
-		console.log("Sound Type: " + sound1.type);
-
 		// start audio
 		sound1.start(); // must start on gesture
 		audio_started = true;
 		// have to resume for ios
 		if (audio_player.state === 'suspended') {
-			console.log("RESUMING AUDIO");
 			audio_player.resume();
 		}
-		console.log("Audio State: " + audio_player.state);
 	}
 
 	// start scan
@@ -54,7 +48,7 @@ function scan()
 	})
 	.catch(error => {
 		// alert("Error: " + error);
-		alert("An error occurred, please try again");
+		alert("An error occurred, please scan again");
 		scan_button.innerHTML = broken_connect;
 	});
 }
@@ -63,11 +57,11 @@ function scan()
 function connect(){
 	return my_device.gatt.connect()
 	.then(server => {
-		console.log("Getting Service...");
+		// console.log("Getting Service...");
 		return server.getPrimaryService(service_uuid);
 	})
 	.then(service => {
-		console.log("Getting Characteristics...");
+		// console.log("Getting Characteristics...");
 		getCharacteristics(service);
 	})
 }
@@ -76,17 +70,17 @@ function connect(){
 function getCharacteristics(service) {
 	service.getCharacteristic(reader_uuid)
 	.then(characteristic => {
-		console.log("Getting Reader");
+		// console.log("Getting Reader");
 		reader = characteristic;
 		return reader.startNotifications().then(_ => {
-	      console.log('Notifications started');
+	      // console.log('Notifications started');
 	      reader.addEventListener('characteristicvaluechanged',
 	          handleNotifications);
 	    });
 	})
 	service.getCharacteristic(writer_uuid)
 	.then(characteristic => {
-		console.log("Getting Writer");
+		// console.log("Getting Writer");
 		writer = characteristic;
 		send_hello();
 		// check properties
@@ -104,10 +98,10 @@ function send_hello() {
 	let value = "I'm new";
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
-		console.log("Sending greetings: " + value);
+		// console.log("Sending greetings: " + value);
 	})
 	.catch(error => {
-		console.log("Hello Error: " + error); // sometimes gets a "not supported" error
+		// console.log("Hello Error: " + error); // sometimes gets a "not supported" error
 		// keep sending
 		send_hello();
 	})
@@ -132,9 +126,8 @@ function handleNotifications(event) {
   		// make blob
   		let bigblob = new Blob(buffers, {type: "image/jpeg"});
   		let url = window.URL.createObjectURL(bigblob);
-  		// URL.revokeObjectURL(display.src); // trash the old image
+  		URL.revokeObjectURL(display.src); // trash the old image
   		display.src = url;
-  		// console.log("New Image URL: " + display.src);
 
   		// check final size
   		// console.log("Total Size: " + total_size);
@@ -166,7 +159,5 @@ function handleNotifications(event) {
   	}
 
   	// draw image // the image on display doesn't actually update until the next iteration
-  	// console.log("Drawing on Canvas");
 	context.drawImage(display, 0, 0);
-	// context.strokeRect(top_left[0], top_left[1], rwidth, rheight);
 }

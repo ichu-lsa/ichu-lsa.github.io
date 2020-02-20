@@ -1,6 +1,6 @@
 function init() {
 	// attach listener to the canvas
-	console.log("Starting Up Version 1.91");
+	console.log("Starting Up Version 1.92");
 	canvas.addEventListener('pointermove', rectDrag, false);
 	canvas.addEventListener('pointerdown', rectDrag, false);
 	canvas.addEventListener('pointerup', rectDrag, false);
@@ -41,20 +41,15 @@ function rectDrag(event) {
 	event.preventDefault(); // not sure if this doesn anything
 
 	// get relative sizes
-	//scalex = display.width / canvas.scrollWidth;
-	//scaley = display.height / canvas.scrollHeight;
 	scalex = canvas.width / canvas.scrollWidth;
 	scaley = canvas.height / canvas.scrollHeight;
 	x = Math.round(x * scalex);
 	y = Math.round(y * scaley);
 
 	// check for event type
-	// console.log("Event Type: " + event.type);
 	if (event.type === "pointerdown") {
 		dragging = true;
 		start = [x,y];
-		console.log("Scale Width: " + scalex);
-		console.log("Scale Height: " + scaley);
 	}
 	if (event.type === "pointermove") {
 		if (dragging) {
@@ -67,18 +62,15 @@ function rectDrag(event) {
 
 			// draw
 			context.strokeRect(top_left[0], top_left[1], rwidth, rheight);
-			// context.strokeRect(top_left[0] * scalex, top_left[1] * scaley, rwidth * scalex, rheight * scaley);
 		}
 	}
 	if (event.type === "pointerup") {
 		end = [x,y];
 		dragging = false;
 		evaluate_corners();
-		// console.log("Pointer up, revealing send_button");
 		send_button.style.visibility = "visible";
 		send_button.disabled = false;
 		send_button.innerHTML = "Send";
-		// console.log("end of pointer up");
 	}
 }
 
