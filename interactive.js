@@ -107,7 +107,7 @@ function send_corners() {
 	.then(_ => {
 		last_light_time = getTime();
 		green_time = 0;
-		// console.log("Sending Corner Data: " + value);
+		console.log("Sending Corner Data: " + value);
 	})
 	.catch(error => {
 		// console.log("Send_Corners Error: " + error); // sometimes gets a "not supported" error
@@ -178,6 +178,7 @@ function sendQuality() {
 	let value = "quality::" + video_slider.value;
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
+		console.log("Sending Quality: " + video_slider.value);
 	})
 	.catch(error => {
 		sendQuality();
