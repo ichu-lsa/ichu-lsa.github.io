@@ -90,6 +90,9 @@ volume_slider.oninput = function () {
 // establish packet size with device
 var sent_packet_size = false;
 
+// get ref to quality slider and button
+var video_slider = document.getElementById("video_slider");
+
 // just a general function for retrieving the time
 function getTime() {
 	time = new Date();

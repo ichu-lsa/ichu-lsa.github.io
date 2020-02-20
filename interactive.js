@@ -121,7 +121,6 @@ function lightWatch(num) {
 	// check light color
 	if (num == 1) {
 		// increment time
-		console.log("Curr::Last: " + getTime() + "::" + last_light_time);
 		green_time += getTime() - last_light_time;
 		if (green_time > trigger_time_ms && !alarm_active) {
 			// trigger the alarm
@@ -170,4 +169,18 @@ function testAlarm() {
 	initAudio();
 	// beep
 	beep(500);
+}
+
+// send the video quality
+function sendQuality() {
+	console.log("Setting Video quality: " + video_slider.value);
+	// set up encoder and start writing
+	let encoder = new TextEncoder('utf-8');
+	let value = "quality::" + video_slider.value;
+	writer.writeValue(encoder.encode(value))
+	.then(_ => {
+	})
+	.catch(error => {
+		sendQuality();
+	})
 }
