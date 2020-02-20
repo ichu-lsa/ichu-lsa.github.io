@@ -85,7 +85,6 @@ function send_corners() {
 	.then(_ => {
 		// console.log("Sending Corner Data: " + value);
 		// disable the button
-		alarm_button.disabled = true;
 		alarm_button.style.display = "block";
 	})
 	.catch(error => {
