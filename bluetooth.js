@@ -89,10 +89,10 @@ function send_hello() {
 	let value = "I'm new";
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
-		console.log("Sending greetings: " + value);
+		// console.log("Sending greetings: " + value);
 	})
 	.catch(error => {
-		console.log("Hello Error: " + error); // sometimes gets a "not supported" error
+		// console.log("Hello Error: " + error); // sometimes gets a "not supported" error
 		// keep sending
 		send_hello();
 	})
@@ -154,7 +154,7 @@ function handleNotifications(event) {
   	}
   	else {
   		// push value into buffer list
-  		console.log("Packet Size: " + value.byteLength);
+  		// console.log("Packet Size: " + value.byteLength);
   		total_size += value.byteLength;
   		buffers.push(value.buffer);
   	}
