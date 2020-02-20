@@ -148,11 +148,15 @@ function lightChanged(num) {
 
 // light watcher
 function lightWatch(num) {
+	// check light color
 	if (num == 1) {
+		// increment time
 		green_time += getTime() - last_light_time;
 		if (green_time > trigger_time && !alarm_active) {
+			// trigger the alarm
 			alarm_active = true;
 			start_alarm();
+			alarm_button.disabled = false;
 		}
 	}
 	if (num == -1) {
