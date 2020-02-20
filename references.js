@@ -79,10 +79,10 @@ var last_light_time = getTime();
 var green_time = 0;
 var trigger_time_ms = 3000;
 
-// get ref to alarm volume slider
+// get ref to alarm volume slider and button
 var volume_slider = document.getElementById("volume_slider");
 volume_slider.oninput = function () {
-	volume.gain.value = this.value;
+	volume.gain.value = this.value / 100.0;
 	console.log("Slider Volume: " + volume.gain.value);
 }
 
