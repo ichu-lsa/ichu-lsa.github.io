@@ -1,8 +1,14 @@
 import os
+import sys
 
 # turns the version into a string
 def versionStr(major, minor):
 	return str(major) + "." + str(minor);
+
+# break if sys args is wrong length
+if (len(sys.argv) < 2):
+	print("YOU FORGOT THE VERSION NUMBER!");
+	sys.exit(0);
 
 # target files
 html_target = "index.html";
@@ -10,7 +16,7 @@ js_target = "drawing.js";
 
 # set version number
 major_version = 1;
-version = 95;
+version = int(sys.argv[1]);
 
 # calculate strings
 last_version = version - 1;
