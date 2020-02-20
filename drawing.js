@@ -1,6 +1,6 @@
 function init() {
 	// attach listener to the canvas
-	console.log("Starting Up Version 1.79");
+	console.log("Starting Up Version 1.80");
 	canvas.addEventListener('pointermove', rectDrag, false);
 	canvas.addEventListener('pointerdown', rectDrag, false);
 	canvas.addEventListener('pointerup', rectDrag, false);
@@ -97,7 +97,4 @@ function evaluate_corners () {
 	}
 	rwidth = bottom_right[0] - top_left[0];
 	rheight = bottom_right[1] - top_left[1];
-	// set text
-	tlc.innerHTML = "Top Left: [" + top_left[0] + "," + top_left[1] + "]";
-	brc.innerHTML = "Bottom Right: [" + bottom_right[0] + "," + bottom_right[1] + "]";
 }

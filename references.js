@@ -4,12 +4,6 @@ var context = canvas.getContext('2d');
 context.strokeStyle = "#FF0000";
 context.lineWidth = 2;
 
-// get ref to text
-var tlc = document.getElementById("top_left");
-var brc = document.getElementById("bottom_right");
-tlc.style.visibility = "hidden";
-brc.style.visibility = "hidden";
-
 // set vars
 var dragging = false;
 var start = [0,0];

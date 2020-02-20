@@ -55,8 +55,6 @@ function toggle_mark() {
 		marking = true;
 		mark_button.innerHTML = mark_on_str;
 		mark_button.disabled = true;
-		tlc.style.visibility = "visible";
-		brc.style.visibility = "visible";
 		toggle_button.innerHTML = start_str;
 		canvas.setAttribute("style", "touch-action:none");
 		get_one_image();
