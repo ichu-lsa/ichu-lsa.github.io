@@ -119,8 +119,16 @@ function send_corners() {
 }
 
 // send a push notification // TODO: actually implement this (just activates a beep for now)
+// push notifications are not available for iOS, just use an alarm
 function sendPush() {
-	beep();
+	// if green, start alarm
+	if (light_status == 1) {
+		alarm_active = true;
+		start_alarm();
+	}
+	else {
+		alarm_active = false;
+	}
 }
 
 // check if the light has changed and send a push notification if it has

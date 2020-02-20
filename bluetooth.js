@@ -19,6 +19,7 @@ function scan()
 		volume.connect(audio_player.destination);
 		sound1 = audio_player.createOscillator();
 		sound1.type = "triangle";
+		sound1.frequency.value = 880; // A5
 
 		// debug
 		console.log("Volume: " + volume.gain.value);

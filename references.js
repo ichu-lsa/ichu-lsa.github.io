@@ -70,15 +70,6 @@ send_button.style.visibility = "hidden";
 
 // make an audio thing
 var AudioContext = window.AudioContext || window.webkitAudioContext;
-/*
-var audio_player = new AudioContext();
-console.log("Initial Audio State: " + audio_player.state);
-var volume = audio_player.createGain();
-volume.gain.value = 1.0; // change to 0.2
-console.log("Volume: " + volume.gain.value);
-var sound1 = audio_player.createOscillator();
-sound1.type = "triangle";
-*/
 
 // try setting everything inside scan
 var audio_player;
@@ -87,9 +78,7 @@ var sound1;
 var sound_on = false;
 var audio_started = false; // there's no method to check whether or not audio is ready
 
-// connect audio things
-// sound1.connect(volume); // don't connect until ready to play
-/*
-volume.connect(audio_player.destination);
-console.log("Sound Type: " + sound1.type); // debug stuff
-*/
+// set up alarm stuff and time keeper
+var alarm_active = false;
+var time = new Date();
+var last_beep = time.getTime();

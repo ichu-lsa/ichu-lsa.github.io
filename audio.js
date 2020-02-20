@@ -14,8 +14,23 @@ function toggle_sound() {
 }
 
 // 1 second beep
-function beep() {
+function beep(duration_ms) {
 	console.log("Beep Volume: " + volume.gain.value);
 	toggle_sound();
-	window.setTimeout(toggle_sound, 1000);
+	window.setTimeout(toggle_sound, duration_ms);
+}
+
+// start alarm listener
+function start_alarm() {
+	// check if the alarm is active
+	let beep_time = 250; // .25 seconds
+	let curr_time = time.getTime();
+	if (alarm_active) {
+		if (curr_time - last_beep > beep_time * 2) {
+			beep(beep_time);
+			last_beep = curr_time;
+		}
+		// recall
+		setTimeout(start_alarm, beep_time*2 - (curr_time - last_beep));
+	}
 }
