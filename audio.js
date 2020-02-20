@@ -27,6 +27,9 @@ function start_alarm() {
 	let beep_time = 250; // .25 seconds
 	let curr_time = time.getTime();
 	let diff_time = curr_time - last_beep;
+	console.log("Diff Time: " + diff_time);
+	console.log("Curr Time: " + curr_time);
+	console.log("Last Time: " + last_beep);
 
 	// check if alarm is active
 	if (alarm_active) {

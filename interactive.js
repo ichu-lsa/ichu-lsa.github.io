@@ -125,7 +125,7 @@ function sendPush() {
 		alarm_active = true;
 		start_alarm();
 	}
-	else {
+	else if (alarm_active) {
 		console.log("Stopping Alarm...");
 		alarm_active = false;
 	}

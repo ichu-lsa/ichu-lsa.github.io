@@ -15,18 +15,8 @@
 */
 (function() {
   'use strict';
-  navigator.serviceWorker.register("./sw.js");
-  // var workerScript = document.currentScript && document.currentScript.dataset.serviceWorker;
-  // console.log("WorkerScript: " + workerScript);
-  // console.log("CurrentScript: " + document.currentScript);
-  // console.log("dataset: " + document.currentScript.dataset.serviceWorker);
-  // console.log("worker properties: " + Object.getOwnPropertyNames(workerScript));
-  // for (let a = 0; a < workerScript.length; a++) {
-  // 	console.log(a + ": " + workerScript[a]);
-  // }
-
-  // if (workerScript && 'serviceWorker' in navigator) {
-  //   navigator.serviceWorker.register(workerScript);
-  // }
-  //*/
+  // check for functionality (isn't there in iOS WebView)
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register("./sw.js");
+  }
 })();
