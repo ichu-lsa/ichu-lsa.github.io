@@ -1,14 +1,9 @@
 // get ref to canvas
+var touchdown = false;
 var canvas = document.getElementById("imageView");
 var context = canvas.getContext('2d');
 context.strokeStyle = "#FF0000";
 context.lineWidth = 2;
-
-// draw text on canvas
-context.font = "20px Arial";
-context.fillstyle = "black";
-context.textAlign = "center";
-context.fillText("Push Me!", canvas.width/2, canvas.height/2);
 
 // set vars
 var dragging = false;
@@ -48,13 +43,17 @@ var start_str = "Start Video";
 var stop_str = "Stop Video";
 toggle_button.innerHTML = start_str;
 
-// get scan button
-var scan_button = document.getElementById("scanning");
+// get scan button // the canvas replaced the scan button
 var no_connect_str = "Scan";
 var connecting_str = "Connecting";
 var connected_str = "Connected";
 var broken_connect = "Re-Scan";
-scan_button.innerHTML = no_connect_str;
+
+// draw text on canvas
+context.font = "20px Arial";
+context.fillstyle = "black";
+context.textAlign = "center";
+context.fillText(no_connect_str, canvas.width/2, canvas.height/2);
 
 // get marking button
 var mark_button = document.getElementById("marking");

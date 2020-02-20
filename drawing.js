@@ -1,6 +1,6 @@
 function init() {
 	// attach listener to the canvas
-	console.log("Starting Up Version 1.98");
+	console.log("Starting Up Version 1.99");
 	canvas.addEventListener('pointermove', rectDrag, false);
 	canvas.addEventListener('pointerdown', rectDrag, false);
 	canvas.addEventListener('pointerup', rectDrag, false);
@@ -14,6 +14,17 @@ function rectDrag(event) {
 	if (!marking) {
 		// allow scrolling
 		canvas.setAttribute("style", "touch-action:auto");
+
+		// canvas press
+		if (event.type === "pointerup") {
+			if (touchdown) {
+				scan();
+				touchdown = false;
+			}
+		}
+		if (event.type === "pointerdown") {
+			touchdown = true;
+		}
 		return;
 	}
 	// stop scrolling
