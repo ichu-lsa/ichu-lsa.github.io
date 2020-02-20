@@ -127,13 +127,13 @@ function stopAlarm() {
 		// unkill
 		kill_alarm = false;
 		alarm_active = false;
-		alarm_button.innerHTML = "stop alarm";
+		alarm_button.innerHTML = "Acknowledge";
 		alarm_button.disabled = true; // allow the lightWatch to re-enable
 	}
 	else {
 		// kill
 		kill_alarm = true;
 		alarm_active = false;
-		alarm_button.innerHTML = "reset alarm";
+		alarm_button.innerHTML = "Reset";
 	}
 }

@@ -37,7 +37,8 @@ function scan()
 	videoStop();
 
 	// set up options
-	let options = {};
+	// filtering by the UART service now
+	// let options = {};
   	// options.acceptAllDevices = true;
   	// options.optionalServices = [service_uuid];
   	// options.services = [service_uuid];
