@@ -152,7 +152,7 @@ function lightWatch(num) {
 	if (num == 1) {
 		// increment time
 		green_time += getTime() - last_light_time;
-		if (green_time > trigger_time && !alarm_active) {
+		if (green_time > trigger_time_ms && !alarm_active) {
 			// trigger the alarm
 			alarm_active = true;
 			start_alarm();
@@ -171,4 +171,16 @@ function stopAlarm() {
 	console.log("Killing the Alarm");
 	kill_alarm = true;
 	alarm_button.disabled = true;
+
+	// check the kill_alarm state
+	if (kill_alarm) {
+		// unkill
+		kill_alarm = false;
+		alarm_button.innerHTML = "stop alarm";
+	}
+	else {
+		// kill
+		kill_alarm = true;
+		alarm_button.innerHTML = "reset alarm";
+	}
 }

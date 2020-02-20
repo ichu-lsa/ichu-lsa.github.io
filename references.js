@@ -85,7 +85,7 @@ var last_beep = getTime();
 // keep track of how long a green light has been on
 var last_light_time = getTime();
 var green_time = 0;
-var trigger_time = 3.0;
+var trigger_time_ms = 3000;
 
 // just a general function for retrieving the time
 function getTime() {
