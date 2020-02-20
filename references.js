@@ -59,6 +59,7 @@ writeCanvas(no_connect_str);
 var mark_on_str = "Marking";
 var mark_off_str = "Mark";
 var marking = false;
+var active_rect = false;
 
 // get corner send button
 var send_button = document.getElementById("send_corners");

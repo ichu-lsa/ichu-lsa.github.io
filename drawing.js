@@ -1,6 +1,6 @@
 function init() {
 	// attach listener to the canvas
-	console.log("Starting Up Version 1.105");
+	console.log("Starting Up Version 1.106");
 	canvas.addEventListener('pointermove', rectDrag, false);
 	canvas.addEventListener('pointerdown', rectDrag, false);
 	canvas.addEventListener('pointerup', rectDrag, false);
@@ -62,6 +62,7 @@ function rectDrag(event) {
 	if (event.type === "pointerdown") {
 		dragging = true;
 		start = [x,y];
+		active_rect = true;
 	}
 	if (event.type === "pointermove") {
 		if (dragging) {
@@ -83,6 +84,7 @@ function rectDrag(event) {
 		send_button.style.visibility = "visible";
 		send_button.disabled = false;
 		send_button.innerHTML = "Send";
+		active_rect = false;
 	}
 }
 

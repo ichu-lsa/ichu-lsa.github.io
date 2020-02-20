@@ -163,4 +163,7 @@ function handleNotifications(event) {
 
   	// draw image // the image on display doesn't actually update until the next iteration
 	context.drawImage(display, 0, 0);
+	if (active_rect) {
+		context.strokeRect(top_left[0], top_left[1], rwidth, rheight);
+	}
 }
