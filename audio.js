@@ -22,15 +22,20 @@ function beep(duration_ms) {
 
 // start alarm listener
 function start_alarm() {
-	// check if the alarm is active
+	// set vars
+	console.log("Alarm Called ^^^");
 	let beep_time = 250; // .25 seconds
 	let curr_time = time.getTime();
+	let diff_time = curr_time - last_beep;
+
+	// check if alarm is active
 	if (alarm_active) {
-		if (curr_time - last_beep > beep_time * 2) {
+		if (diff_time > beep_time * 2) {
 			beep(beep_time);
 			last_beep = curr_time;
 		}
 		// recall
-		setTimeout(start_alarm, beep_time*2 - (curr_time - last_beep));
+		console.log("Recalling")
+		setTimeout(start_alarm, beep_time * 2 - (diff_time));
 	}
 }

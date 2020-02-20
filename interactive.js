@@ -123,10 +123,12 @@ function send_corners() {
 function sendPush() {
 	// if green, start alarm
 	if (light_status == 1) {
+		console.log("Starting Alarm!!!");
 		alarm_active = true;
 		start_alarm();
 	}
 	else {
+		console.log("Stopping Alarm...");
 		alarm_active = false;
 	}
 }
