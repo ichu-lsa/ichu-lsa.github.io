@@ -55,12 +55,9 @@ context.fillstyle = "black";
 context.textAlign = "center";
 writeCanvas(no_connect_str);
 
-// get marking button
-var mark_button = document.getElementById("marking");
+// get marking button // removing the marking button
 var mark_on_str = "Marking";
 var mark_off_str = "Mark";
-mark_button.style.visibility = "hidden";
-mark_button.innerHTML = mark_off_str;
 var marking = false;
 
 // get corner send button

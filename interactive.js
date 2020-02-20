@@ -43,23 +43,14 @@ function request_img() {
 	})
 }
 
-// start marking mode
-function toggle_mark() {
-	// switch between modes
-	if (marking) {
-		marking = false;
-		mark_button.innerHTML = mark_off_str;
-		mark_button.disabled = false;
-		canvas.setAttribute("style", "touch-action:auto");
-	}
-	else {
-		marking = true;
-		mark_button.innerHTML = mark_on_str;
-		mark_button.disabled = true;
-		toggle_button.innerHTML = start_str;
-		canvas.setAttribute("style", "touch-action:none");
-		get_one_image();
-	}
+// split marking mode away from toggle
+function mark_on() {
+	marking = true;
+	canvas.setAttribute("style", "touch_action:none");
+}
+function mark_off() {
+	marking = false;
+	canvas.setAttribute("style", "touch_action:auto");
 }
 
 // request single image

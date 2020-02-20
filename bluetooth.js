@@ -33,6 +33,7 @@ function scan()
 	// start scan
 	console.log("Scanning...");
 	writeCanvas(connecting_str);
+	mark_off();
 
 	// set up options
 	let options = {};
@@ -86,8 +87,10 @@ function getCharacteristics(service) {
 		// check properties
 		// console.log("Writer Properties: " + writer.properties.write);
 		toggle_button.style.visibility = "visible";
-		mark_button.style.visibility = "visible";
 		writeCanvas(connected_str);
+
+		// enter marking mode
+		mark_on();
 	})
 }
 
