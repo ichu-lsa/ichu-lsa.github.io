@@ -19,6 +19,11 @@ function videoStop() {
 
 // request image
 function request_img() {
+	// check if waiting and wait for others
+	if (waiting_on_corners || waiting_on_quality) {
+		setTimeout(request_img, 200);
+		return;
+	}
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
 	let value = "get_image";
@@ -105,11 +110,13 @@ function send_corners() {
 	value += " " + bottom_right[0] + " " + bottom_right[1];
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
+		waiting_on_corners = false;
 		last_light_time = getTime();
 		green_time = 0;
 		console.log("Sending Corner Data: " + value);
 	})
 	.catch(error => {
+		waiting_on_corners = true;
 		// console.log("Send_Corners Error: " + error); // sometimes gets a "not supported" error
 		// keep trying to send until it works
 		send_corners();
@@ -178,9 +185,11 @@ function sendQuality() {
 	let value = "quality::" + video_slider.value;
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
+		waiting_on_quality = true;
 		console.log("Sending Quality: " + video_slider.value);
 	})
 	.catch(error => {
+		waiting_on_quality = false;
 		sendQuality();
 	})
 }

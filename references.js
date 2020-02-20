@@ -93,6 +93,10 @@ var sent_packet_size = false;
 // get ref to quality slider and button
 var video_slider = document.getElementById("video_slider");
 
+// traffic controllers
+var waiting_on_corners = false;
+var waiting_on_quality = false;
+
 // just a general function for retrieving the time
 function getTime() {
 	time = new Date();
