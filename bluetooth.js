@@ -34,6 +34,7 @@ function scan()
 	console.log("Scanning...");
 	writeCanvas(connecting_str);
 	mark_off();
+	video_off();
 
 	// set up options
 	let options = {};
@@ -86,11 +87,11 @@ function getCharacteristics(service) {
 		send_hello();
 		// check properties
 		// console.log("Writer Properties: " + writer.properties.write);
-		toggle_button.style.visibility = "visible";
 		writeCanvas(connected_str);
 
 		// enter marking mode
 		mark_on();
+		video_on();
 	})
 }
 

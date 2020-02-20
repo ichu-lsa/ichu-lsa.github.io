@@ -7,20 +7,12 @@ function toString(value) {
 	return str;
 }
 
-// flip the button
-function toggle_video() {
-	if (running) {
-		running = false;
-		toggle_button.innerHTML = start_str;
-		// console.log("Stopping Video...");
-	}
-	else {
-		running = true;
-		toggle_button.innerHTML = stop_str;
-		// console.log("Starting Video...");
-		request_img();
-		last_light_time = getTime();
-	}
+// change toggle to on/off
+function videoStart() {
+	running = true;
+}
+function videoStop() {
+	running = false;
 }
 
 // request image

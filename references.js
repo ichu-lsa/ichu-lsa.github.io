@@ -36,13 +36,6 @@ var total_size = 0;
 // loop
 var running = false;
 
-// get video button elements
-var toggle_button = document.getElementById("video");
-toggle_button.style.visibility = "hidden";
-var start_str = "Start Video";
-var stop_str = "Stop Video";
-toggle_button.innerHTML = start_str;
-
 // get scan button // the canvas replaced the scan button
 var no_connect_str = "Scan";
 var connecting_str = "Connecting";
