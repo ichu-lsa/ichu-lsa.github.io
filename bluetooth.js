@@ -154,7 +154,7 @@ function handleNotifications(event) {
   	}
   	else {
   		// push value into buffer list
-  		// console.log("Packet Size: " + value.byteLength);
+  		console.log("Packet Size: " + value.byteLength);
   		total_size += value.byteLength;
   		buffers.push(value.buffer);
   	}
