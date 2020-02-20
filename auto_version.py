@@ -10,7 +10,7 @@ js_target = "drawing.js";
 
 # set version number
 major_version = 1;
-version = 93;
+version = 95;
 
 # calculate strings
 last_version = version - 1;
@@ -22,6 +22,7 @@ print("Prev Version: " + prev);
 # open html file and replace strings
 file = open(html_target, "rt");
 html = file.read();
+print("Replace Count: " + str(html.count(prev)));
 html = html.replace(prev, curr);
 file.close();
 file = open(html_target, "wt");
@@ -31,6 +32,7 @@ file.close();
 # open javascript file and replace strings
 file = open(js_target, "rt");
 js = file.read();
+print("Replace Count: " + str(js.count("Version " + prev)));
 js = js.replace("Version " + prev, "Version " + curr);
 file.close();
 file = open(js_target, "wt");
