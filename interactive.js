@@ -173,7 +173,6 @@ function testAlarm() {
 
 // send the video quality
 function sendQuality() {
-	console.log("Setting Video quality: " + video_slider.value);
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
 	let value = "quality::" + video_slider.value;
