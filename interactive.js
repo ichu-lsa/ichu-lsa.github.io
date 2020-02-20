@@ -83,12 +83,6 @@ function sleep(ms) {
 
 // send corner data
 function send_corners() {
-	// stop running video
-	if (running) {
-		toggle_video();
-	}
-	send_button.disabled = true;
-	send_button.innerHTML = "Sending...";
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
 	let value = "Corners: " + top_left[0] + " " + top_left[1];
@@ -97,8 +91,6 @@ function send_corners() {
 	.then(_ => {
 		// console.log("Sending Corner Data: " + value);
 		// disable the button
-		send_button.disabled = true;
-		send_button.innerHTML = "Sent!";
 		alarm_button.disabled = true;
 		alarm_button.style.display = "block";
 	})
