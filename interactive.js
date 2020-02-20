@@ -45,7 +45,8 @@ function send_packet_size(packet_size) {
 	let value = "max_size::" + packet_size;
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
-		// console.log("Making Image Request: " + value);
+		// start video after sending packet message
+		videoStart();
 	})
 	.catch(error => {
 		// console.log("Request Error: " + error); // sometimes gets a "not supported" error

@@ -79,7 +79,6 @@ function getCharacteristics(service) {
 
 		// enter marking mode
 		mark_on();
-		videoStart();
 	})
 }
 
@@ -145,8 +144,10 @@ function handleNotifications(event) {
   	}
   	else if (bin.substring(0,6).localeCompare("test::") == 0) {
   		// write back a message with the max packet size
-  		sent_packet_size = true;
-  		send_packet_size(value.byteLength);
+  		if (!sent_packet_size) {
+  			send_packet_size(value.byteLength);
+  			sent_packet_size = true;
+  		}
   	}
   	else {
   		// push value into buffer list
