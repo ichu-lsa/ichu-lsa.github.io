@@ -151,6 +151,7 @@ function lightWatch(num) {
 	if (num == 1) {
 		green_time += getTime() - last_light_time;
 		if (green_time > trigger_time && !alarm_active) {
+			alarm_active = true;
 			start_alarm();
 		}
 	}

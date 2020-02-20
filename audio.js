@@ -15,7 +15,7 @@ function toggle_sound() {
 
 // 1 second beep
 function beep(duration_ms) {
-	console.log("Beep Volume: " + volume.gain.value);
+	// console.log("Beep Volume: " + volume.gain.value);
 	toggle_sound();
 	window.setTimeout(toggle_sound, duration_ms);
 }
@@ -27,9 +27,6 @@ function start_alarm() {
 	let beep_time = 200; // .20 seconds
 	let curr_time = getTime();
 	let diff_time = curr_time - last_beep;
-	console.log("Diff Time: " + diff_time);
-	console.log("Curr Time: " + curr_time);
-	console.log("Last Time: " + last_beep);
 
 	// check if alarm is active
 	if (alarm_active && !kill_alarm) {
@@ -38,12 +35,7 @@ function start_alarm() {
 			last_beep = curr_time;
 		}
 		// recall
-		console.log("Recalling")
+		// console.log("Recalling")
 		setTimeout(start_alarm, beep_time * 2 - (diff_time));
-	}
-	else {
-		console.log("Alarm Inactive");
-		console.log("Alarm_Active: " + alarm_active);
-		console.log("Kill_Alarm: " + kill_alarm);
 	}
 }
