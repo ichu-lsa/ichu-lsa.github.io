@@ -11,7 +11,6 @@ function toString(value) {
 function videoStart() {
 	// console.log("Starting Video...");
 	running = true;
-	last_light_time = getTime();
 	request_img();
 }
 function videoStop() {
@@ -20,7 +19,6 @@ function videoStop() {
 
 // request image
 function request_img() {
-	last_light_time = getTime();
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
 	let value = "get_image";
@@ -107,6 +105,7 @@ function send_corners() {
 	value += " " + bottom_right[0] + " " + bottom_right[1];
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
+		last_light_time =getTime();
 		// console.log("Sending Corner Data: " + value);
 	})
 	.catch(error => {
