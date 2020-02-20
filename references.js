@@ -77,6 +77,13 @@ var sound_on = false;
 var audio_started = false; // there's no method to check whether or not audio is ready
 
 // set up alarm stuff and time keeper
+var kill_alarm = false;
 var alarm_active = false;
 var time = new Date();
 var last_beep = time.getTime();
+
+// just a general function for retrieving the time
+function getTime() {
+	time = new Date();
+	return time.getTime();
+}

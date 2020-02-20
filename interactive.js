@@ -118,7 +118,7 @@ function send_corners() {
 	})
 }
 
-// send a push notification // TODO: actually implement this (just activates a beep for now)
+// send a push notification
 // push notifications are not available for iOS, just use an alarm
 function sendPush() {
 	// if green, start alarm
@@ -126,6 +126,9 @@ function sendPush() {
 		console.log("Starting Alarm!!!");
 		alarm_active = true;
 		start_alarm();
+
+		// enable the alarm_button
+		alarm_button.disabled = false;
 	}
 	else if (alarm_active) {
 		console.log("Stopping Alarm...");
@@ -140,4 +143,11 @@ function lightChanged(num) {
 		sendPush();
 		console.log("Light Change: " + num);
 	}
+}
+
+// stop the alarm // can only kill the alarm once for now
+function stopAlarm() {
+	// set the text of the alarm
+	kill_alarm = true;
+	alarm_button.disabled = true;
 }
