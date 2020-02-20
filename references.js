@@ -92,6 +92,7 @@ var sent_packet_size = false;
 
 // get ref to quality slider and button
 var video_slider = document.getElementById("video_slider");
+var quality_button = document.getElementById("video_quality");
 
 // traffic controllers
 var waiting_on_corners = false;

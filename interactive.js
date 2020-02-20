@@ -185,11 +185,11 @@ function sendQuality() {
 	let value = "quality::" + video_slider.value;
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
-		waiting_on_quality = true;
+		waiting_on_quality = false;
 		console.log("Sending Quality: " + video_slider.value);
 	})
 	.catch(error => {
-		waiting_on_quality = false;
+		waiting_on_quality = true;
 		sendQuality();
 	})
 }
