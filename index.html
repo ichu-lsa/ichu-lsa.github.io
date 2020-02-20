@@ -29,30 +29,31 @@
 			
 			/* modify canvas size to match viewport */
 			@media screen and (orientation:portrait) {
-				#imageView { width:80vw; padding-top:0.66%; } /* 3:2 aspect */
+				#container { width:80vw; padding-top:0.66%; } /* 3:2 aspect */
 			}
 			@media screen and (orientation:landscape) {
-				#imageView { width:80vh; padding-top:0.66%; } /* 3:2 aspect */
+				#container { width:80vh; padding-top:0.66%; } /* 3:2 aspect */
 			}
 		</style>
 		<!-- set up a canvas -->
 		<body>
 			<!-- declare version number, change with each push -->
-			<p>Version 1.112</p>
+			<p>Version 1.114</p>
 
 			<!-- set up drawing stuff -->
 			<div id="container">
-				<canvas id="imageView" width="320" height="240"><button id="stop_alarm" onclick="stopAlarm()">I Get It</button></canvas>
+				<canvas id="imageView" width="320" height="240"></canvas>
+				<button id="stop_alarm" onclick="stopAlarm()">I Get It</button>
 			</div>
 			<img id="draw_bg" src="" style="display:none">
 
 			<!-- include scripts, must include query string for cache-busting -->
-			<script src = "references.js?v=1.112"></script>
-			<script src = "audio.js?v=1.112"></script>
-			<script src = "bluetooth.js?v=1.112"></script>
-			<script src = "drawing.js?v=1.112"></script>
-			<script src = "interactive.js?v=1.112"></script>
-			<script src="companion.js?v=1.112" data-service-worker="sw.js"></script>
+			<script src = "references.js?v=1.114"></script>
+			<script src = "audio.js?v=1.114"></script>
+			<script src = "bluetooth.js?v=1.114"></script>
+			<script src = "drawing.js?v=1.114"></script>
+			<script src = "interactive.js?v=1.114"></script>
+			<script src="companion.js?v=1.114" data-service-worker="sw.js"></script>
 		</body>
 	</head>
 </html>
