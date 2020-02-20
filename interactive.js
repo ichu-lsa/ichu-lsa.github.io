@@ -95,16 +95,15 @@ function send_corners() {
 	value += " " + bottom_right[0] + " " + bottom_right[1];
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
-		console.log("Sending Corner Data: " + value);
-		// disable the button and flip mark
+		// console.log("Sending Corner Data: " + value);
+		// disable the button
 		send_button.disabled = true;
 		send_button.innerHTML = "Sent!";
 		alarm_button.disabled = true;
 		alarm_button.style.display = "block";
-		toggle_mark();
 	})
 	.catch(error => {
-		console.log("Send_Corners Error: " + error); // sometimes gets a "not supported" error
+		// console.log("Send_Corners Error: " + error); // sometimes gets a "not supported" error
 		// keep trying to send until it works
 		send_corners();
 	})
