@@ -48,6 +48,8 @@ function send_packet_size(packet_size) {
 	.then(_ => {
 		// start video after sending packet message
 		videoStart();
+		buffers = [];
+		total_size = 0;
 	})
 	.catch(error => {
 		// console.log("Request Error: " + error); // sometimes gets a "not supported" error
@@ -118,6 +120,7 @@ function lightWatch(num) {
 	// check light color
 	if (num == 1) {
 		// increment time
+		console.log("Curr::Last: " + getTime() + "::" + last_light_time);
 		green_time += getTime() - last_light_time;
 		if (green_time > trigger_time_ms && !alarm_active) {
 			// trigger the alarm

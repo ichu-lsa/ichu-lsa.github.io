@@ -148,9 +148,6 @@ function handleNotifications(event) {
   			send_packet_size(value.byteLength);
   			sent_packet_size = true;
   		}
-  		if (running) {
-  			request_img();
-  		}
   	}
   	else {
   		// push value into buffer list
