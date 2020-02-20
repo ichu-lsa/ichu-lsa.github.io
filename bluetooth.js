@@ -32,7 +32,7 @@ function scan()
 
 	// start scan
 	console.log("Scanning...");
-	context.fillText(connecting_str, canvas.width/2, canvas.height/2);
+	writeCanvas(connecting_str);
 
 	// set up options
 	let options = {};
@@ -49,7 +49,7 @@ function scan()
 	.catch(error => {
 		// alert("Error: " + error);
 		alert("An error occurred, please scan again");
-		context.fillText(broken_connect, canvas.width/2, canvas.height/2);
+		writeCanvas(broken_connect);
 	});
 }
 
@@ -87,7 +87,7 @@ function getCharacteristics(service) {
 		// console.log("Writer Properties: " + writer.properties.write);
 		toggle_button.style.visibility = "visible";
 		mark_button.style.visibility = "visible";
-		context.fillText(connected_str, canvas.width/2, canvas.height/2);
+		writeCanvas(connected_str);
 	})
 }
 

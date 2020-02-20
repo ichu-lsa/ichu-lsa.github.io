@@ -53,7 +53,7 @@ var broken_connect = "Re-Scan";
 context.font = "20px Arial";
 context.fillstyle = "black";
 context.textAlign = "center";
-context.fillText(no_connect_str, canvas.width/2, canvas.height/2);
+writeCanvas(no_connect_str);
 
 // get marking button
 var mark_button = document.getElementById("marking");
@@ -96,4 +96,10 @@ var trigger_time_ms = 3000;
 function getTime() {
 	time = new Date();
 	return time.getTime();
+}
+
+// general function for writing text to canvas
+function writeCanvas(text) {
+	context.clearRect(0,0,canvas.width, canvas.height);
+	context.fillText(text, canvas.width/2, canvas.height/2);
 }
