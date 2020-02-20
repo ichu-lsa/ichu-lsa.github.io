@@ -143,7 +143,7 @@ function handleNotifications(event) {
   	else if (bin.localeCompare("light::none") == 0) {
   		lightWatch(0);
   	}
-  	else if (bin.substring(0,6).localeCompare("test::")) {
+  	else if (bin.substring(0,6).localeCompare("test::") == 0) {
   		// write back a message with the max packet size
   		sent_packet_size = true;
   		send_packet_size(value.byteLength);
