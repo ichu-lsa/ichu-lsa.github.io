@@ -34,7 +34,7 @@ function scan()
 	console.log("Scanning...");
 	writeCanvas(connecting_str);
 	mark_off();
-	video_off();
+	videoStop();
 
 	// set up options
 	let options = {};
@@ -91,7 +91,7 @@ function getCharacteristics(service) {
 
 		// enter marking mode
 		mark_on();
-		video_on();
+		videoStart();
 	})
 }
 
