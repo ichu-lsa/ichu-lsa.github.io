@@ -20,6 +20,7 @@ function videoStop() {
 
 // request image
 function request_img() {
+	last_light_time = getTime();
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
 	let value = "get_image";
