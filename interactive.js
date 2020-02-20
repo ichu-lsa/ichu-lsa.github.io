@@ -25,10 +25,10 @@ function request_img() {
 	let value = "get_image";
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
-		// console.log("Making Image Request: " + value);
+		console.log("Making Image Request: " + value);
 	})
 	.catch(error => {
-		// console.log("Request Error: " + error); // sometimes gets a "not supported" error
+		console.log("Request Error: " + error); // sometimes gets a "not supported" error
 
 		// keep going // unfortunately this needs to be here
 		// just deal with the console messages
