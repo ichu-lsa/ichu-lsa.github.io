@@ -84,8 +84,6 @@ function send_corners() {
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
 		// console.log("Sending Corner Data: " + value);
-		// disable the button
-		alarm_button.style.display = "block";
 	})
 	.catch(error => {
 		// console.log("Send_Corners Error: " + error); // sometimes gets a "not supported" error
@@ -111,6 +109,14 @@ function lightWatch(num) {
 		green_time = 0;
 	}
 	last_light_time = getTime();
+
+	// modify the alarm button
+	if (alarm_active && !kill_alarm) {
+		alarm_button.style.display = "none";
+	}
+	else {
+		alarm_button.style.display = "block";
+	}
 }
 
 // stop the alarm

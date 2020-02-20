@@ -21,7 +21,12 @@
 			#container { position: relative; }
 			#imageView { border: 1px solid #000; }
 			#imageView { touch-action: auto; } /* change to none in .js when marking */
-			#stop_alarm{ position: absolute; top:0%; left:0%; font-size: 20px; background-color: crimson; color: white;}
+			#stop_alarm{ position: absolute; 
+						 top:0%; 
+						 left:0%; 
+						 font-size: 20px; 
+						 color: white;
+						 border-radius: 8px;}
 			
 			/* modify canvas size to match viewport */
 			@media screen and (orientation:portrait) {
@@ -34,7 +39,7 @@
 		<!-- set up a canvas -->
 		<body>
 			<!-- declare version number, change with each push -->
-			<p>Version 1.119</p>
+			<p>Version 1.120</p>
 
 			<!-- set up drawing stuff -->
 			<div id="container">
@@ -44,12 +49,12 @@
 			<img id="draw_bg" src="" style="display:none">
 
 			<!-- include scripts, must include query string for cache-busting -->
-			<script src = "references.js?v=1.119"></script>
-			<script src = "audio.js?v=1.119"></script>
-			<script src = "bluetooth.js?v=1.119"></script>
-			<script src = "drawing.js?v=1.119"></script>
-			<script src = "interactive.js?v=1.119"></script>
-			<script src="companion.js?v=1.119" data-service-worker="sw.js"></script>
+			<script src = "references.js?v=1.120"></script>
+			<script src = "audio.js?v=1.120"></script>
+			<script src = "bluetooth.js?v=1.120"></script>
+			<script src = "drawing.js?v=1.120"></script>
+			<script src = "interactive.js?v=1.120"></script>
+			<script src="companion.js?v=1.120" data-service-worker="sw.js"></script>
 		</body>
 	</head>
 </html>
