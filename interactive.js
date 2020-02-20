@@ -10,6 +10,8 @@ function toString(value) {
 // change toggle to on/off
 function videoStart() {
 	running = true;
+	last_light_time = getTime();
+	request_img();
 }
 function videoStop() {
 	running = false;
