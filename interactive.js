@@ -37,6 +37,25 @@ function request_img() {
 	})
 }
 
+// send packet data
+function send_packet_size(packet_size) {
+	console.log("Sending Packet Size: " + packet_size);
+	// set up encoder and start writing
+	let encoder = new TextEncoder('utf-8');
+	let value = "max_size::" + packet_size;
+	writer.writeValue(encoder.encode(value))
+	.then(_ => {
+		// console.log("Making Image Request: " + value);
+	})
+	.catch(error => {
+		// console.log("Request Error: " + error); // sometimes gets a "not supported" error
+
+		// keep going // unfortunately this needs to be here
+		// just deal with the console messages
+		send_packet_size(packet_size);
+	})
+}
+
 // split marking mode away from toggle
 function mark_on() {
 	marking = true;

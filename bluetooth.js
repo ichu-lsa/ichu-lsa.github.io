@@ -106,7 +106,7 @@ function handleNotifications(event) {
 
 	// convert to string
   	let bin = '';
-  	if (value.byteLength <= 20) {
+  	if (value.byteLength <= 20 || !sent_packet_size) {
 	  	for (a = 0; a < value.byteLength; a++)
 	  	{
 	  		bin += String.fromCharCode(value.getInt8(a));
@@ -145,6 +145,8 @@ function handleNotifications(event) {
   	}
   	else if (bin.substring(0,6).localeCompare("test::")) {
   		// write back a message with the max packet size
+  		sent_packet_size = true;
+  		send_packet_size(value.byteLength);
   	}
   	else {
   		// push value into buffer list

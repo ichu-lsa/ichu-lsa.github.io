@@ -87,6 +87,9 @@ volume_slider.oninput = function () {
 	console.log("Slider Volume: " + volume.gain.value);
 }
 
+// establish packet size with device
+var sent_packet_size = false;
+
 // just a general function for retrieving the time
 function getTime() {
 	time = new Date();
