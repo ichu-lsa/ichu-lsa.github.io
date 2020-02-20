@@ -15,7 +15,7 @@ function scan()
 		// initialize all audio things
 		audio_player = new AudioContext();
 		volume = audio_player.createGain();
-		volume.gain.value = 1.0;
+		volume.gain.value = 0.3;
 		volume.connect(audio_player.destination);
 		sound1 = audio_player.createOscillator();
 		sound1.type = "triangle";
