@@ -90,10 +90,10 @@ function send_hello() {
 	let value = "I'm new";
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
-		// console.log("Sending greetings: " + value);
+		console.log("Sending greetings: " + value);
 	})
 	.catch(error => {
-		// console.log("Hello Error: " + error); // sometimes gets a "not supported" error
+		console.log("Hello Error: " + error); // sometimes gets a "not supported" error
 		// keep sending
 		send_hello();
 	})
