@@ -40,10 +40,12 @@ function scan()
 	let options = {};
   	// options.acceptAllDevices = true;
   	// options.optionalServices = [service_uuid];
-  	options.services = [service_uuid];
+  	// options.services = [service_uuid];
 
   	// get connection and stuff
-	navigator.bluetooth.requestDevice(options)
+	navigator.bluetooth.requestDevice({
+		filters: [{ services: [service_uuid], }]
+	})
 	.then(device => {
 		console.log("Name: " + device.name);
 		my_device = device;
@@ -51,6 +53,7 @@ function scan()
 	})
 	.catch(error => {
 		// alert("Error: " + error);
+		console.log("Scan Error: " + error);
 		alert("An error occurred, please scan again");
 		writeCanvas(broken_connect);
 	});
