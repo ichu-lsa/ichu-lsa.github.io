@@ -10,25 +10,8 @@ var reader_uuid = '6e400003-b5a3-f393-e0a9-e50e24dcca9e';
 
 function scan()
 {
-	// start the audio if it needs it
-	if (!audio_started){
-		// initialize all audio things
-		audio_player = new AudioContext();
-		volume = audio_player.createGain();
-		volume.gain.value = 0.3;
-		volume.connect(audio_player.destination);
-		sound1 = audio_player.createOscillator();
-		sound1.type = "triangle";
-		sound1.frequency.value = 880; // A5
-
-		// start audio
-		sound1.start(); // must start on gesture
-		audio_started = true;
-		// have to resume for ios
-		if (audio_player.state === 'suspended') {
-			audio_player.resume();
-		}
-	}
+	// start audio
+	initAudio();
 
 	// start scan
 	console.log("Scanning...");
@@ -159,6 +142,9 @@ function handleNotifications(event) {
   	}
   	else if (bin.localeCompare("light::none") == 0) {
   		lightWatch(0);
+  	}
+  	else if (bin.substring(0,6).localeCompare("test::")) {
+  		// write back a message with the max packet size
   	}
   	else {
   		// push value into buffer list

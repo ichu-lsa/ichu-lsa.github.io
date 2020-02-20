@@ -142,24 +142,7 @@ function stopAlarm() {
 // test the alarm
 function testAlarm() {
 	// start the audio if it needs it
-	if (!audio_started){
-		// initialize all audio things
-		audio_player = new AudioContext();
-		volume = audio_player.createGain();
-		volume.gain.value = 0.3;
-		volume.connect(audio_player.destination);
-		sound1 = audio_player.createOscillator();
-		sound1.type = "triangle";
-		sound1.frequency.value = 880; // A5
-
-		// start audio
-		sound1.start(); // must start on gesture
-		audio_started = true;
-		// have to resume for ios
-		if (audio_player.state === 'suspended') {
-			audio_player.resume();
-		}
-	}
+	initAudio();
 	// beep
 	beep(500);
 }
