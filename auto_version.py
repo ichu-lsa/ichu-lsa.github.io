@@ -10,7 +10,7 @@ js_target = "drawing.js";
 
 # set version number
 major_version = 1;
-version = 92;
+version = 93;
 
 # calculate strings
 last_version = version - 1;

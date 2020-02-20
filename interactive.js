@@ -138,17 +138,17 @@ function lightWatch(num) {
 	last_light_time = getTime();
 }
 
-// stop the alarm // can only kill the alarm once for now
+// stop the alarm
 function stopAlarm() {
 	// check the kill_alarm state
 	if (kill_alarm) {
 		// unkill
 		kill_alarm = false;
+		alarm_active = false;
 		alarm_button.innerHTML = "stop alarm";
+		alarm_button.disabled = true; // allow the lightWatch to re-enable
 	}
 	else {
-		// set the text of the alarm
-		// console.log("Killing the Alarm");
 		// kill
 		kill_alarm = true;
 		alarm_active = false;
