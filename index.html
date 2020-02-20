@@ -39,7 +39,7 @@
 		<!-- set up a canvas -->
 		<body>
 			<!-- declare version number, change with each push -->
-			<p>Version 1.132</p>
+			<p>Version 1.133</p>
 
 			<!-- set up drawing stuff -->
 			<div id="container">
@@ -49,16 +49,17 @@
 			<img id="draw_bg" src="" style="display:none">
 
 			<!-- create alarm settings -->
+			<p style="display:inline">Volume</p>
 			<input type="range" min = "0" max = "100" value = "30" id = "volume_slider">
 			<button id="alarm_test" onclick="testAlarm()">Test Alarm</button>
 
 			<!-- include scripts, must include query string for cache-busting -->
-			<script src = "references.js?v=1.132"></script>
-			<script src = "audio.js?v=1.132"></script>
-			<script src = "bluetooth.js?v=1.132"></script>
-			<script src = "drawing.js?v=1.132"></script>
-			<script src = "interactive.js?v=1.132"></script>
-			<script src="companion.js?v=1.132" data-service-worker="sw.js"></script>
+			<script src = "references.js?v=1.133"></script>
+			<script src = "audio.js?v=1.133"></script>
+			<script src = "bluetooth.js?v=1.133"></script>
+			<script src = "drawing.js?v=1.133"></script>
+			<script src = "interactive.js?v=1.133"></script>
+			<script src="companion.js?v=1.133" data-service-worker="sw.js"></script>
 		</body>
 	</head>
 </html>
