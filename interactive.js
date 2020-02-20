@@ -112,10 +112,10 @@ function lightWatch(num) {
 
 	// modify the alarm button
 	if (alarm_active && !kill_alarm) {
-		alarm_button.style.display = "none";
+		alarm_button.style.display = "block";
 	}
 	else {
-		alarm_button.style.display = "block";
+		alarm_button.style.display = "none";
 	}
 }
 

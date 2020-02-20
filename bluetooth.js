@@ -38,8 +38,9 @@ function scan()
 
 	// set up options
 	let options = {};
-  	options.acceptAllDevices = true;
-  	options.optionalServices = [service_uuid];
+  	// options.acceptAllDevices = true;
+  	// options.optionalServices = [service_uuid];
+  	options.services = [service_uuid];
 
   	// get connection and stuff
 	navigator.bluetooth.requestDevice(options)
