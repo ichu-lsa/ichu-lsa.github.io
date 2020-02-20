@@ -4,6 +4,12 @@ var context = canvas.getContext('2d');
 context.strokeStyle = "#FF0000";
 context.lineWidth = 2;
 
+// draw text on canvas
+context.font = "20px Arial";
+context.fillstyle = "black";
+context.textAlign = "center";
+context.fillText("Push Me!", canvas.width/2, canvas.height/2);
+
 // set vars
 var dragging = false;
 var start = [0,0];

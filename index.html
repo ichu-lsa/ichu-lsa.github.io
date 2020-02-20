@@ -33,7 +33,7 @@
 		<!-- set up a canvas -->
 		<body>
 			<!-- declare version number, change with each push -->
-			<p>Version 1.96</p>
+			<p>Version 1.97</p>
 			<!-- set up bluetooth buttons -->
 			<button id="scanning" onclick="scan()">Scan</button>
 			<button id="marking" onclick="toggle_mark()">Mark</button>
@@ -41,7 +41,7 @@
 
 			<!-- set up drawing stuff -->
 			<div id="container">
-				<canvas id="imageView" width="320" height="240">Push Me!</canvas>
+				<canvas id="imageView" width="320" height="240"></canvas>
 			</div>
 			<img id="draw_bg" src="" style="display:none">
 			<button id="send_corners" onclick="send_corners()" style="display:block">Send</button>
@@ -50,12 +50,12 @@
 			<button id="stop_alarm" onclick="stopAlarm()">I Get It</button>
 
 			<!-- include scripts, must include query string for cache-busting -->
-			<script src = "references.js?v=1.96"></script>
-			<script src = "audio.js?v=1.96"></script>
-			<script src = "bluetooth.js?v=1.96"></script>
-			<script src = "drawing.js?v=1.96"></script>
-			<script src = "interactive.js?v=1.96"></script>
-			<script src="companion.js?v=1.96" data-service-worker="sw.js"></script>
+			<script src = "references.js?v=1.97"></script>
+			<script src = "audio.js?v=1.97"></script>
+			<script src = "bluetooth.js?v=1.97"></script>
+			<script src = "drawing.js?v=1.97"></script>
+			<script src = "interactive.js?v=1.97"></script>
+			<script src="companion.js?v=1.97" data-service-worker="sw.js"></script>
 		</body>
 	</head>
 </html>
