@@ -99,12 +99,16 @@ var waiting_on_corners = false;
 var waiting_on_quality = false;
 
 // status messages
-var status_none = "Not Connected";
-var status_armed = "Armed";
-var status_alarm = "Alarm";
-var status_obstructed = "Lost Target";
-var status_disarmed = "Disarmed";
-var status_error = "Error";
+var status_message = document.getElementById("status_message");
+var status_base = "Status: ";
+var status_none = status_base + "Not Connected";
+var status_connected = status_base + "Connected";
+var status_armed = status_base + "Armed";
+var status_alarm = status_base + "Alarm";
+var status_obstructed = status_base + "Lost Target";
+var status_disarmed = status_base + "Disarmed";
+var status_error = status_base + "Error";
+status_message.innerHTML = status_none;
 
 // just a general function for retrieving the time
 function getTime() {

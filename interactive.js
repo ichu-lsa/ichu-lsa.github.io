@@ -54,6 +54,7 @@ function send_packet_size(packet_size) {
 		videoStart();
 		buffers = [];
 		total_size = 0;
+		status_message = status_connected;
 	})
 	.catch(error => {
 		// console.log("Request Error: " + error); // sometimes gets a "not supported" error
@@ -145,6 +146,7 @@ function lightWatch(num) {
 	// if the alarm isn't active, and the kill_alarm is off, hide
 	if (!alarm_active && !kill_alarm) {
 		alarm_button.style.display = "none";
+		alarm_button.innerHTML = "Acknowledge";
 	}
 	else {
 		alarm_button.style.display = "block";
@@ -158,7 +160,6 @@ function stopAlarm() {
 		// unkill
 		kill_alarm = false;
 		alarm_active = false;
-		alarm_button.innerHTML = "Acknowledge";
 		alarm_button.disabled = true; // allow the lightWatch to re-enable
 		green_time = 0;
 	}
