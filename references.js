@@ -98,6 +98,14 @@ var quality_button = document.getElementById("video_quality");
 var waiting_on_corners = false;
 var waiting_on_quality = false;
 
+// status messages
+var status_none = "Not Connected";
+var status_armed = "Armed";
+var status_alarm = "Alarm";
+var status_obstructed = "Lost Target";
+var status_disarmed = "Disarmed";
+var status_error = "Error";
+
 // just a general function for retrieving the time
 function getTime() {
 	time = new Date();
