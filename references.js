@@ -111,8 +111,6 @@ function writeCanvas(text) {
 }
 
 // general function to start the audio
-var bg_sound;
-var bg_volume;
 function initAudio() {
 	// start the audio if it needs it
 	if (!audio_started){
@@ -124,12 +122,6 @@ function initAudio() {
 		sound1 = audio_player.createOscillator();
 		sound1.type = "triangle";
 		sound1.frequency.value = 880; // A5
-
-		// try to stay alive in background with sound
-		bg_sound = audio_player.createOscillator();
-		bg_volume = audio_player.createGain();
-		bg_volume.gain.value = .1;
-		bg_volume.connect(audio_player.destination);
 
 		// start audio
 		sound1.start(); // must start on gesture

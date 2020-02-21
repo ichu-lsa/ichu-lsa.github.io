@@ -193,10 +193,3 @@ function sendQuality() {
 		sendQuality();
 	})
 }
-
-// continuously play sound
-function alwaysOn() {
-	initAudio();
-	bg_sound.start();
-	bg_sound.connect(bg_volume);
-}

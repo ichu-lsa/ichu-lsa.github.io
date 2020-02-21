@@ -1,6 +1,6 @@
 function init() {
 	// attach listener to the canvas
-	console.log("Starting Up Version 1.155");
+	console.log("Starting Up Version 1.156");
 	canvas.addEventListener('pointermove', rectDrag, false);
 	canvas.addEventListener('pointerdown', rectDrag, false);
 	canvas.addEventListener('pointerup', rectDrag, false);
