@@ -39,7 +39,7 @@ var running = false;
 // get scan button // the canvas replaced the scan button
 var no_connect_str = "Scan";
 var connecting_str = "Connecting";
-var connected_str = "Connected";
+var connected_str = "Prepping Video";
 var broken_connect = "Re-Scan";
 
 // draw text on canvas
