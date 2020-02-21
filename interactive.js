@@ -160,7 +160,6 @@ function lightWatch(num) {
 	// if the alarm isn't active, and the kill_alarm is off, hide
 	if (!alarm_active && !kill_alarm) {
 		alarm_button.style.display = "none";
-		alarm_button.innerHTML = "Acknowledge";
 	}
 	else {
 		alarm_button.style.display = "block";
@@ -186,7 +185,9 @@ function stopAlarm() {
 		alarm_active = false;
 		alarm_button.disabled = true; // allow the lightWatch to re-enable
 		green_time = 0;
+		blue_time = 0;
 		status_message.innerHTML = status_armed;
+		alarm_button.innerHTML = "Acknowledge";
 	}
 	else {
 		// kill
