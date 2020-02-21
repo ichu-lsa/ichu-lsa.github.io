@@ -195,11 +195,8 @@ function sendQuality() {
 }
 
 // continuously play sound
-var bg_sound = audio_player.createOscillator();
-var bg_volume = audio_player.createGain();
-bg_volume = .1;
-bg_volume.connect(audio_player.destination);
 function alwaysOn() {
+	initAudio();
 	bg_sound.start();
 	bg_sound.connect(bg_volume);
 }
