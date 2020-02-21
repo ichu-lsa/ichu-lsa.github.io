@@ -126,8 +126,8 @@ function initAudio() {
 		sound1.frequency.value = 880; // A5
 
 		// try to stay alive in background with sound
-		var bg_sound = audio_player.createOscillator();
-		var bg_volume = audio_player.createGain();
+		bg_sound = audio_player.createOscillator();
+		bg_volume = audio_player.createGain();
 		bg_volume.gain.value = .1;
 		bg_volume.connect(audio_player.destination);
 
