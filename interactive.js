@@ -146,7 +146,7 @@ function lightWatch(num) {
 		blue_time = 0;
 	}
 	if (num == 0) {
-		blue_time += getTime() + last_light_time;
+		blue_time += getTime() - last_light_time;
 		if (blue_time > obstruction_trigger_ms) {
 			if (!kill_alarm) {
 				status_message.innerHTML = status_obstructed;
