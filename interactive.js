@@ -115,6 +115,9 @@ function send_corners() {
 		last_light_time = getTime();
 		green_time = 0;
 		console.log("Sending Corner Data: " + value);
+		if (!kill_alarm && !alarm_active) {
+			status_message = status_armed;
+		}
 	})
 	.catch(error => {
 		waiting_on_corners = true;
@@ -130,15 +133,26 @@ function lightWatch(num) {
 	if (num == 1) {
 		// increment time
 		green_time += getTime() - last_light_time;
-		if (green_time > trigger_time_ms && !alarm_active) {
-			// trigger the alarm
-			alarm_active = true;
-			start_alarm();
-			alarm_button.disabled = false;
+		blue_time = 0;
+		if (green_time > trigger_time_ms) {
+			if (!kill_alarm) {
+				status_message = status_alarm;
+			}
+			triggerAlarm();
 		}
 	}
 	if (num == -1) {
 		green_time = 0;
+		blue_time = 0;
+	}
+	if (num == 0) {
+		blue_time += getTime() + last_light_time;
+		if (blue_time > obstruction_trigger_ms) {
+			if (!kill_alarm) {
+				status_message = status_obstructed;
+			}
+			triggerAlarm();
+		}
 	}
 	last_light_time = getTime();
 
@@ -153,6 +167,16 @@ function lightWatch(num) {
 	}
 }
 
+// starts the alarm and enables the button
+function triggerAlarm() {
+	if (!alarm_active) {
+		// trigger the alarm
+		alarm_active = true;
+		start_alarm();
+		alarm_button.disabled = false;
+	}
+}
+
 // stop the alarm
 function stopAlarm() {
 	// check the kill_alarm state
@@ -162,12 +186,14 @@ function stopAlarm() {
 		alarm_active = false;
 		alarm_button.disabled = true; // allow the lightWatch to re-enable
 		green_time = 0;
+		status_message = status_armed;
 	}
 	else {
 		// kill
 		kill_alarm = true;
 		alarm_active = false;
 		alarm_button.innerHTML = "Reset";
+		status_message = status_disarmed;
 	}
 }
 
