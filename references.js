@@ -128,7 +128,7 @@ function initAudio() {
 		// try to stay alive in background with sound
 		var bg_sound = audio_player.createOscillator();
 		var bg_volume = audio_player.createGain();
-		bg_volume = .1;
+		bg_volume.gain.value = .1;
 		bg_volume.connect(audio_player.destination);
 
 		// start audio
