@@ -54,7 +54,7 @@ function send_packet_size(packet_size) {
 		videoStart();
 		buffers = [];
 		total_size = 0;
-		status_message = status_connected;
+		status_message.innerHTML = status_connected;
 	})
 	.catch(error => {
 		// console.log("Request Error: " + error); // sometimes gets a "not supported" error
@@ -116,7 +116,7 @@ function send_corners() {
 		green_time = 0;
 		console.log("Sending Corner Data: " + value);
 		if (!kill_alarm && !alarm_active) {
-			status_message = status_armed;
+			status_message.innerHTML = status_armed;
 		}
 	})
 	.catch(error => {
@@ -136,7 +136,7 @@ function lightWatch(num) {
 		blue_time = 0;
 		if (green_time > trigger_time_ms) {
 			if (!kill_alarm) {
-				status_message = status_alarm;
+				status_message.innerHTML = status_alarm;
 			}
 			triggerAlarm();
 		}
@@ -149,7 +149,7 @@ function lightWatch(num) {
 		blue_time += getTime() + last_light_time;
 		if (blue_time > obstruction_trigger_ms) {
 			if (!kill_alarm) {
-				status_message = status_obstructed;
+				status_message.innerHTML = status_obstructed;
 			}
 			triggerAlarm();
 		}
@@ -186,14 +186,14 @@ function stopAlarm() {
 		alarm_active = false;
 		alarm_button.disabled = true; // allow the lightWatch to re-enable
 		green_time = 0;
-		status_message = status_armed;
+		status_message.innerHTML = status_armed;
 	}
 	else {
 		// kill
 		kill_alarm = true;
 		alarm_active = false;
 		alarm_button.innerHTML = "Reset";
-		status_message = status_disarmed;
+		status_message.innerHTML = status_disarmed;
 	}
 }
 
