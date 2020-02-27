@@ -272,6 +272,7 @@ function confirmShutdown() {
 }
 
 // send a power event
+var power_cycle = 0;
 function sendPower() {
 	if (!power_on) {
 		return;
@@ -293,6 +294,16 @@ function sendPower() {
 	})
 	.catch(error => {
 		waiting_on_power = true;
+		power_cycle += 1;
+		if (power_cycle > 5) {
+			console.log("Pi is Shutdown");
+			// try to stop code
+			power_on = false;
+			status.innerHTML = "Shutdown";
+			writeCanvas("No Power");
+			kill_alarm = true;
+			alarm_active = false;
+		}
 		sendPower();
 	})
 }
