@@ -249,6 +249,11 @@ function sendRecord() {
 
 // send a power event
 function sendPower() {
+	// check for confirmation
+	const agree = confirm("Confirm Shutdown Action");
+	if (!agree) {
+		return;
+	}
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
 	let value = "power::poweroff";
