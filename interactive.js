@@ -273,6 +273,9 @@ function confirmShutdown() {
 
 // send a power event
 function sendPower() {
+	if (!power_on) {
+		return;
+	}
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
 	let value = "power::poweroff";
@@ -281,8 +284,6 @@ function sendPower() {
 		waiting_on_power = false;
 		console.log("Sending Power Event");
 		// try to stop code
-		writer = "";
-		reader = "";
 		power_on = false;
 		status.innerHTML = "Shutdown";
 		writeCanvas("No Power");
