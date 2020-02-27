@@ -248,7 +248,7 @@ function sendRecord() {
 }
 
 // confirms a powerdown event
-function confirmShudown() {
+function confirmShutdown() {
 	// check for confirmation
 	const agree = confirm("Confirm Shutdown Action");
 	if (!agree) {
