@@ -19,6 +19,10 @@ function videoStop() {
 
 // request image
 function request_img() {
+	// check power
+	if (!power_on) {
+		return;
+	}
 	// check if waiting and wait for others
 	if (waiting_on_corners || waiting_on_quality || waiting_on_button) {
 		setTimeout(request_img, 200);
@@ -252,6 +256,7 @@ function sendPower() {
 	.then(_ => {
 		waiting_on_power = false;
 		console.log("Sending Power Event");
+		power_on = false;
 	})
 	.catch(error => {
 		waiting_on_power = true;

@@ -61,6 +61,7 @@ alarm_button.style.display = "none";
 // get recording and power button
 var record_button = document.getElementById("record_button");
 var power_button = document.getElementById("power_button");
+var power_on = true;
 
 // make an audio thing
 var AudioContext = window.AudioContext || window.webkitAudioContext;
