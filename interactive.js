@@ -257,6 +257,7 @@ function sendPower() {
 		waiting_on_power = false;
 		console.log("Sending Power Event");
 		power_on = false;
+		exit();
 	})
 	.catch(error => {
 		waiting_on_power = true;
