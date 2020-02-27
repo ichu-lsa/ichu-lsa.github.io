@@ -295,6 +295,7 @@ function sendPower() {
 	.catch(error => {
 		waiting_on_power = true;
 		power_cycle += 1;
+		console.log("Sending Shutdown Message");
 		if (power_cycle > 5) {
 			console.log("Pi is Shutdown");
 			// try to stop code
