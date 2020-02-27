@@ -131,6 +131,7 @@ function lightWatch(num) {
 	// obstructed
 	if (num == 0) {
 		if (!kill_alarm) {
+			console.log("Triggering Obstruction Alarm");
 			status_message.innerHTML = status_obstructed;
 			triggerAlarm();
 		}
@@ -138,6 +139,7 @@ function lightWatch(num) {
 	// green light
 	if (num == 1) {
 		if (!kill_alarm) {
+			console.log("Triggering Green Alarm");
 			status.innerHTML = status_alarm;
 			triggerAlarm();
 		}
@@ -187,9 +189,11 @@ function stopAlarm() {
 		kill_alarm = false;
 		alarm_active = false;
 		alarm_button.disabled = true; // allow the lightWatch to re-enable
+		alarm_button.style.display = "none";
 		status_message.innerHTML = status_armed;
 		alarm_button.innerHTML = "Acknowledge";
 		sendReset();
+		console.log("Hit Reset");
 	}
 	else {
 		// kill
