@@ -189,6 +189,7 @@ function stopAlarm() {
 		alarm_button.disabled = true; // allow the lightWatch to re-enable
 		status_message.innerHTML = status_armed;
 		alarm_button.innerHTML = "Acknowledge";
+		sendReset();
 	}
 	else {
 		// kill
@@ -196,7 +197,6 @@ function stopAlarm() {
 		alarm_active = false;
 		alarm_button.innerHTML = "Reset";
 		status_message.innerHTML = status_disarmed;
-		sendReset();
 	}
 }
 
