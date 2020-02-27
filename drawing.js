@@ -1,6 +1,6 @@
 function init() {
 	// attach listener to the canvas
-	console.log("Starting Up Version 1.178");
+	console.log("Starting Up Version 1.179");
 	canvas.addEventListener('pointermove', rectDrag, false);
 	canvas.addEventListener('pointerdown', rectDrag, false);
 	canvas.addEventListener('pointerup', rectDrag, false);
@@ -30,6 +30,11 @@ function rectDrag(event) {
 	}
 	// stop scrolling
 	canvas.setAttribute("style", "touch-action:none");
+
+	// disable if off
+	if (!power_on) {
+		return;
+	}
 
 	// get mouse position
 	var x = -1;

@@ -102,6 +102,11 @@ function send_hello() {
 
 // give reaction when characteristic changes
 function handleNotifications(event) {
+	// disable if not on
+	if (!power_on) {
+		return;
+	}
+
 	// get value
   	let value = event.target.value;
 

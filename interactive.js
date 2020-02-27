@@ -247,13 +247,20 @@ function sendRecord() {
 	})
 }
 
-// send a power event
-function sendPower() {
+// confirms a powerdown event
+function confirmShudown() {
 	// check for confirmation
 	const agree = confirm("Confirm Shutdown Action");
 	if (!agree) {
 		return;
 	}
+	else {
+		sendPower();
+	}
+}
+
+// send a power event
+function sendPower() {
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
 	let value = "power::poweroff";
@@ -265,6 +272,8 @@ function sendPower() {
 		writer = "";
 		reader = "";
 		power_on = false;
+		status.innerHTML = "Shutdown";
+		writeCanvas("No Power");
 		exit();
 	})
 	.catch(error => {
