@@ -39,7 +39,7 @@
 		<!-- set up a canvas -->
 		<body>
 			<!-- declare version number, change with each push -->
-			<p>Version 1.171</p>
+			<p>Version 1.172</p>
 
 			<!-- declare status -->
 			<p id="status_message"></p>
@@ -64,19 +64,19 @@
 
 			<!-- add a record button -->
 			<br>
-			<button id="record_button" style="display:block" onclick="sendRecord()">Record</button>
+			<button id="record_button" style="display:block" disabled="true" onclick="sendRecord()">Record</button>
 
 			<!-- add a poweroff button -->
 			<br>
-			<button id="power_button" style="display:block" onclick="sendPower()">Power Off</button>
+			<button id="power_button" style="display:block" disabled="true" onclick="sendPower()">Power Off</button>
 
 			<!-- include scripts, must include query string for cache-busting -->
-			<script src = "references.js?v=1.171"></script>
-			<script src = "audio.js?v=1.171"></script>
-			<script src = "bluetooth.js?v=1.171"></script>
-			<script src = "drawing.js?v=1.171"></script>
-			<script src = "interactive.js?v=1.171"></script>
-			<script src="companion.js?v=1.171" data-service-worker="sw.js"></script>
+			<script src = "references.js?v=1.170"></script>
+			<script src = "audio.js?v=1.170"></script>
+			<script src = "bluetooth.js?v=1.170"></script>
+			<script src = "drawing.js?v=1.170"></script>
+			<script src = "interactive.js?v=1.170"></script>
+			<script src="companion.js?v=1.170" data-service-worker="sw.js"></script>
 		</body>
 	</head>
 </html>

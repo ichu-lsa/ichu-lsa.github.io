@@ -58,6 +58,10 @@ var active_rect = false;
 var alarm_button = document.getElementById("stop_alarm");
 alarm_button.style.display = "none";
 
+// get recording and power button
+var record_button = document.getElementById("record_button");
+var power_button = document.getElementById("power_button");
+
 // make an audio thing
 var AudioContext = window.AudioContext || window.webkitAudioContext;
 
