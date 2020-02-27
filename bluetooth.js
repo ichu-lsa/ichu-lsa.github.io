@@ -16,7 +16,6 @@ function scan()
 	// start scan
 	console.log("Scanning...");
 	writeCanvas(connecting_str);
-	mark_off();
 	videoStop();
 
 	// set up options

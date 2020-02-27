@@ -258,7 +258,7 @@ function sendPower() {
 		console.log("Sending Power Event");
 		// try to stop code
 		writer = "";
-		reader = "":
+		reader = "";
 		power_on = false;
 		exit();
 	})
