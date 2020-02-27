@@ -132,15 +132,15 @@ function lightWatch(num) {
 	if (num == 0) {
 		if (!kill_alarm) {
 			status_message.innerHTML = status_obstructed;
+			triggerAlarm();
 		}
-		triggerAlarm();
 	}
 	// green light
 	if (num == 1) {
 		if (!kill_alarm) {
 			status.innerHTML = status_alarm;
+			triggerAlarm();
 		}
-		triggerAlarm();
 	}
 
 	// modify the alarm button
