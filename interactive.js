@@ -196,6 +196,7 @@ function stopAlarm() {
 		alarm_active = false;
 		alarm_button.innerHTML = "Reset";
 		status_message.innerHTML = status_disarmed;
+		sendReset();
 	}
 }
 
