@@ -101,10 +101,12 @@ var sent_packet_size = false;
 var video_slider = document.getElementById("video_slider");
 var quality_button = document.getElementById("video_quality");
 
-// traffic controllers
+// traffic controllers // should turn this into a queue or something
 var waiting_on_corners = false;
 var waiting_on_quality = false;
 var waiting_on_button = false;
+var waiting_on_record = false;
+var waiting_on_power = false;
 
 // status messages
 var status_message = document.getElementById("status_message");
@@ -112,7 +114,7 @@ var status_base = "Status: ";
 var status_none = status_base + "Not Connected";
 var status_connected = status_base + "Connected";
 var status_armed = status_base + "Armed";
-var status_alarm = status_base + "Alarm";
+var status_alarm = status_base + "Green Light Alarm";
 var status_obstructed = status_base + "Lost Target";
 var status_disarmed = status_base + "Disarmed";
 var status_error = status_base + "Error";

@@ -193,7 +193,6 @@ function stopAlarm() {
 		status_message.innerHTML = status_armed;
 		alarm_button.innerHTML = "Acknowledge";
 		sendReset();
-		console.log("Hit Reset");
 	}
 	else {
 		// kill
@@ -225,5 +224,37 @@ function sendQuality() {
 	.catch(error => {
 		waiting_on_quality = true;
 		sendQuality();
+	})
+}
+
+// send a record event
+function sendRecord() {
+	// set up encoder and start writing
+	let encoder = new TextEncoder('utf-8');
+	let value = "event::record";
+	writer.writeValue(encoder.encode(value))
+	.then(_ => {
+		waiting_on_record = false;
+		console.log("Sending Record Event");
+	})
+	.catch(error => {
+		waiting_on_record = true;
+		sendRecord();
+	})
+}
+
+// send a power event
+function sendPower() {
+	// set up encoder and start writing
+	let encoder = new TextEncoder('utf-8');
+	let value = "power::poweroff";
+	writer.writeValue(encoder.encode(value))
+	.then(_ => {
+		waiting_on_power = false;
+		console.log("Sending Power Event");
+	})
+	.catch(error => {
+		waiting_on_power = true;
+		sendPower();
 	})
 }
