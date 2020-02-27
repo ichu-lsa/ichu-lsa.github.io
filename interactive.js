@@ -256,6 +256,9 @@ function sendPower() {
 	.then(_ => {
 		waiting_on_power = false;
 		console.log("Sending Power Event");
+		// try to stop code
+		writer = "";
+		reader = "":
 		power_on = false;
 		exit();
 	})
