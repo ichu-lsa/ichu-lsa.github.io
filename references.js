@@ -104,6 +104,7 @@ var quality_button = document.getElementById("video_quality");
 // traffic controllers
 var waiting_on_corners = false;
 var waiting_on_quality = false;
+var waiting_on_button = false;
 
 // status messages
 var status_message = document.getElementById("status_message");

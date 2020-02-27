@@ -20,7 +20,7 @@ function videoStop() {
 // request image
 function request_img() {
 	// check if waiting and wait for others
-	if (waiting_on_corners || waiting_on_quality) {
+	if (waiting_on_corners || waiting_on_quality || waiting_on_button) {
 		setTimeout(request_img, 200);
 		return;
 	}
@@ -119,7 +119,7 @@ function send_corners() {
 	})
 	.catch(error => {
 		waiting_on_corners = true;
-		// console.log("Send_Corners Error: " + error); // sometimes gets a "not supported" error
+		console.log("Send_Corners Error: " + error); // sometimes gets a "not supported" error
 		// keep trying to send until it works
 		send_corners();
 	})
@@ -161,6 +161,22 @@ function triggerAlarm() {
 		start_alarm();
 		alarm_button.disabled = false;
 	}
+}
+
+// send reset message
+function sendReset() {
+	// set up encoder and start writing
+	let encoder = new TextEncoder('utf-8');
+	let value = "button::reset"
+	writer.writeValue(encoder.encode(value))
+	.then(_ => {
+		waiting_on_button = false;
+		console.log("Sending Reset: " + value);
+	})
+	.catch(error => {
+		waiting_on_button = true;
+		sendReset();
+	})
 }
 
 // stop the alarm
