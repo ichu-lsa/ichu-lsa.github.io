@@ -74,12 +74,17 @@ var alarm_active = false;
 var time = new Date();
 var last_beep = getTime();
 
+// the client is no longer responsible for keeping track of 
+// how long a light has been on and triggering an alarm,
+// but now the client has to send awknowledge and reset
+// messages to the server to reset alarm timers
+
 // keep track of how long a green light has been on
-var last_light_time = getTime();
-var green_time = 0;
-var trigger_time_ms = 3000;
-var blue_time = 0;
-var obstruction_trigger_ms = 15000;
+// var last_light_time = getTime();
+// var green_time = 0;
+// var trigger_time_ms = 3000;
+// var blue_time = 0;
+// var obstruction_trigger_ms = 15000;
 
 // get ref to alarm volume slider and button
 var volume_slider = document.getElementById("volume_slider");

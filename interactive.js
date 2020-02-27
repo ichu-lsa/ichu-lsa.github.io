@@ -112,8 +112,6 @@ function send_corners() {
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
 		waiting_on_corners = false;
-		last_light_time = getTime();
-		green_time = 0;
 		console.log("Sending Corner Data: " + value);
 		if (!kill_alarm && !alarm_active) {
 			status_message.innerHTML = status_armed;
@@ -129,32 +127,21 @@ function send_corners() {
 
 // light watcher
 function lightWatch(num) {
-	// check light color
-	if (num == 1) {
-		// increment time
-		green_time += getTime() - last_light_time;
-		blue_time = 0;
-		if (green_time > trigger_time_ms) {
-			if (!kill_alarm) {
-				status_message.innerHTML = status_alarm;
-			}
-			triggerAlarm();
-		}
-	}
-	if (num == -1) {
-		green_time = 0;
-		blue_time = 0;
-	}
+	// check the alarm message
+	// obstructed
 	if (num == 0) {
-		blue_time += getTime() - last_light_time;
-		if (blue_time > obstruction_trigger_ms) {
-			if (!kill_alarm) {
-				status_message.innerHTML = status_obstructed;
-			}
-			triggerAlarm();
+		if (!kill_alarm) {
+			status_message.innerHTML = status_obstructed;
 		}
+		triggerAlarm();
 	}
-	last_light_time = getTime();
+	// green light
+	if (num == 1) {
+		if (!kill_alarm) {
+			status.innerHTML = status_alarm;
+		}
+		triggerAlarm();
+	}
 
 	// modify the alarm button
 	// if the alarm isn't active, and the kill_alarm is off, hide
@@ -184,8 +171,6 @@ function stopAlarm() {
 		kill_alarm = false;
 		alarm_active = false;
 		alarm_button.disabled = true; // allow the lightWatch to re-enable
-		green_time = 0;
-		blue_time = 0;
 		status_message.innerHTML = status_armed;
 		alarm_button.innerHTML = "Acknowledge";
 	}

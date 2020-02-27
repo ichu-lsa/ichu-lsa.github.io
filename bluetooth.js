@@ -134,14 +134,11 @@ function handleNotifications(event) {
 		}
   	}
   	// check for color
-  	else if (bin.localeCompare("light::red") == 0) {
-  		lightWatch(-1);
-  	}
-  	else if (bin.localeCompare("light::green") == 0) {
-  		lightWatch(1);
-  	}
-  	else if (bin.localeCompare("light::none") == 0) {
+  	else if (bin.localeCompare("alarm::obstruction") == 0) {
   		lightWatch(0);
+  	}
+  	else if (bin.localeCompare("alarm::green") == 0) {
+  		lightWatch(1);
   	}
   	else if (bin.substring(0,6).localeCompare("test::") == 0) {
   		// write back a message with the max packet size
