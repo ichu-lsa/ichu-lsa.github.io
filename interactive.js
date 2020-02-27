@@ -109,6 +109,9 @@ function sleep(ms) {
 
 // send corner data
 function send_corners() {
+	if (!power_on) {
+		return;
+	}
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
 	let value = "Corners: " + top_left[0] + " " + top_left[1];
@@ -171,6 +174,9 @@ function triggerAlarm() {
 
 // send reset message
 function sendReset() {
+	if (!power_on) {
+		return;
+	}
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
 	let value = "button::reset"
@@ -217,6 +223,9 @@ function testAlarm() {
 
 // send the video quality
 function sendQuality() {
+	if (!power_on) {
+		return;
+	}
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
 	let value = "quality::" + video_slider.value;
@@ -233,6 +242,9 @@ function sendQuality() {
 
 // send a record event
 function sendRecord() {
+	if (!power_on) {
+		return;
+	}
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
 	let value = "event::record";
@@ -274,6 +286,8 @@ function sendPower() {
 		power_on = false;
 		status.innerHTML = "Shutdown";
 		writeCanvas("No Power");
+		kill_alarm = true;
+		alarm_active = false;
 		exit();
 	})
 	.catch(error => {
