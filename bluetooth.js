@@ -81,6 +81,7 @@ function getCharacteristics(service) {
 		quality_button.disabled = false;
 		record_button.disabled = false;
 		power_button.disabled = false;
+		sendSettings();
 	})
 }
 

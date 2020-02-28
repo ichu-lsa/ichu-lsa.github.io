@@ -308,3 +308,21 @@ function sendPower() {
 		sendPower();
 	})
 }
+
+// send a settings message
+// this should really only happen once on-connect
+function sendSettings() {
+	if (!power_on) {
+		return;
+	}
+	// set up encoder and start writing
+	let encoder = new TextEncoder('utf-8');
+	let value = settings_message + green_band + " " + red_band + " " + light_str;
+	writer.writeValue(encoder.encode(value))
+	.then(_ => {
+		console.log("Sending Settings");
+	})
+	.catch(error => {
+		sendSettings();
+	})
+}

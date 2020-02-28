@@ -125,6 +125,12 @@ var status_disarmed = status_base + "Disarmed";
 var status_error = status_base + "Error";
 status_message.innerHTML = status_none;
 
+// send settings
+var settings_message = "settings::";
+var green_band = "60 80";
+var red_band = "10 160";
+var light_str = "230";
+
 // just a general function for retrieving the time
 function getTime() {
 	time = new Date();
