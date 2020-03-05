@@ -99,6 +99,13 @@ volume_slider.oninput = function () {
 	console.log("Slider Volume: " + volume.gain.value);
 }
 
+// get ref to brightness slider and debug button
+var brightness_slider = document.getElementById("brightness_slider");
+var debug_button = document.getElementById("debug_button");
+brightness_slider.oninput = function () {
+	setBrightness(this.value);
+}
+
 // establish packet size with device
 var sent_packet_size = false;
 
@@ -109,6 +116,7 @@ var quality_button = document.getElementById("video_quality");
 // traffic controllers // should turn this into a queue or something
 var waiting_on_corners = false;
 var waiting_on_quality = false;
+var waiting_on_brightness = false;
 var waiting_on_button = false;
 var waiting_on_record = false;
 var waiting_on_power = false;

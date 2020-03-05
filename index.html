@@ -39,7 +39,7 @@
 		<!-- set up a canvas -->
 		<body>
 			<!-- declare version number, change with each push -->
-			<p>Version 1.187</p>
+			<p>Version 1.188</p>
 
 			<!-- declare status -->
 			<p id="status_message"></p>
@@ -50,6 +50,12 @@
 				<button id="stop_alarm" onclick="stopAlarm()">Acknowledge</button>
 			</div>
 			<img id="draw_bg" src="" style="display:none">
+
+			<!-- add a brightness slider -->
+			<br>
+			<p style="display:inline">Brightness</p>
+			<input type="range" min = "0" max = "10000" value = "5000" id = "brightness_slider">
+			<button id="debug_button" style="display:block" onclick="toggleMask()">Debug Mask</button>
 
 			<!-- create alarm settings -->
 			<p style="display:inline">Volume</p>
@@ -71,12 +77,12 @@
 			<button id="power_button" style="display:block" disabled="true" onclick="confirmShutdown()">Power Off</button>
 
 			<!-- include scripts, must include query string for cache-busting -->
-			<script src = "references.js?v=1.187"></script>
-			<script src = "audio.js?v=1.187"></script>
-			<script src = "bluetooth.js?v=1.187"></script>
-			<script src = "drawing.js?v=1.187"></script>
-			<script src = "interactive.js?v=1.187"></script>
-			<script src="companion.js?v=1.187" data-service-worker="sw.js"></script>
+			<script src = "references.js?v=1.188"></script>
+			<script src = "audio.js?v=1.188"></script>
+			<script src = "bluetooth.js?v=1.188"></script>
+			<script src = "drawing.js?v=1.188"></script>
+			<script src = "interactive.js?v=1.188"></script>
+			<script src="companion.js?v=1.188" data-service-worker="sw.js"></script>
 		</body>
 	</head>
 </html>

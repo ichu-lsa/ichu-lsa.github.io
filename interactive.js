@@ -24,7 +24,7 @@ function request_img() {
 		return;
 	}
 	// check if waiting and wait for others
-	if (waiting_on_corners || waiting_on_quality || waiting_on_button) {
+	if (waiting_on_corners || waiting_on_quality || waiting_on_button || waiting_on_brightness) {
 		setTimeout(request_img, 200);
 		return;
 	}
@@ -240,6 +240,25 @@ function sendQuality() {
 	})
 }
 
+// send the new shutter speed
+function setBrightness(new_shutter_speed) {
+	if (!power_on) {
+		return;
+	}
+	// set up encoder and start writing
+	let encoder = new TextEncoder('utf-8');
+	let value = "shutter::" + new_shutter_speed;
+	writer.writeValue(encoder.encode(value))
+	.then(_ => {
+		waiting_on_brightness = false;
+		console.log("Sending Brightness: " + new_shutter_speed);
+	})
+	.catch(error => {
+		waiting_on_brightness = true;
+		setBrightness();
+	})
+}
+
 // send a record event
 function sendRecord() {
 	if (!power_on) {
@@ -256,6 +275,25 @@ function sendRecord() {
 	.catch(error => {
 		waiting_on_record = true;
 		sendRecord();
+	})
+}
+
+// send a debug request
+function toggleMask() {
+	if (!power_on) {
+		return;
+	}
+	// set up encoder and start writing
+	let encoder = new TextEncoder('utf-8');
+	let value = "debug::vmask";
+	writer.writeValue(encoder.encode(value))
+	.then(_ => {
+		waiting_on_record = false;
+		console.log("Sending Debug Event");
+	})
+	.catch(error => {
+		waiting_on_record = true;
+		toggleMask();
 	})
 }
 
