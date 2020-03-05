@@ -95,7 +95,7 @@ function send_hello() {
 		// console.log("Sending greetings: " + value);
 	})
 	.catch(error => {
-		// console.log("Hello Error: " + error); // sometimes gets a "not supported" error
+		console.log("Hello Error: " + error); // sometimes gets a "not supported" error
 		// keep sending
 		send_hello();
 	})
