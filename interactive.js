@@ -241,18 +241,18 @@ function sendQuality() {
 }
 
 // send the new shutter speed
-function setBrightness(new_shutter_speed) {
+function setBrightness() {
 	if (!power_on) {
 		return;
 	}
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
-	console.log("New_shutter_speed: " + new_shutter_speed);
-	let value = "shutter::" + new_shutter_speed;
+	console.log("New_shutter_speed: " + brightness_slider.value);
+	let value = "shutter::" + brightness_slider.value;
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
 		waiting_on_brightness = false;
-		console.log("Sending Brightness: " + new_shutter_speed);
+		console.log("Sending Brightness: " + brightness_slider.value);
 	})
 	.catch(error => {
 		waiting_on_brightness = true;
