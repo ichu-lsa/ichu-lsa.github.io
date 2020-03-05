@@ -136,7 +136,7 @@ status_message.innerHTML = status_none;
 
 // send settings
 var settings_message = "settings::";
-var green_band = "80 100";
+var green_band = "80 110";
 var red_band = "140 170";
 var light_str = "230";
 
