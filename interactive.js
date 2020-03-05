@@ -247,6 +247,7 @@ function setBrightness(new_shutter_speed) {
 	}
 	// set up encoder and start writing
 	let encoder = new TextEncoder('utf-8');
+	console.log("New_shutter_speed: " + new_shutter_speed);
 	let value = "shutter::" + new_shutter_speed;
 	writer.writeValue(encoder.encode(value))
 	.then(_ => {
