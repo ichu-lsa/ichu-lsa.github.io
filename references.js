@@ -136,8 +136,8 @@ status_message.innerHTML = status_none;
 
 // send settings
 var settings_message = "settings::";
-var green_band = "80 110";
-var red_band = "140 170";
+var green_band = "25 60";
+var red_band = "10 160";
 var light_str = "230";
 
 // just a general function for retrieving the time
