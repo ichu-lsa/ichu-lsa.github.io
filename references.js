@@ -103,6 +103,7 @@ volume_slider.oninput = function () {
 var brightness_slider = document.getElementById("brightness_slider");
 var debug_button = document.getElementById("debug_button");
 brightness_slider.oninput = function () {
+	console.log("Brightness value: " + this.value);
 	setBrightness(this.value);
 }
 
