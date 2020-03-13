@@ -78,7 +78,6 @@ function getCharacteristics(service) {
 
 		// enter marking mode
 		mark_on();
-		quality_button.disabled = false;
 		record_button.disabled = false;
 		power_button.disabled = false;
 		sendSettings();

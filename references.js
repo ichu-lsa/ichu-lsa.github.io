@@ -110,9 +110,12 @@ brightness_slider.oninput = function () {
 // establish packet size with device
 var sent_packet_size = false;
 
-// get ref to quality slider and button
+// get ref to quality slider
 var video_slider = document.getElementById("video_slider");
-var quality_button = document.getElementById("video_quality");
+video_slider.oninput = function () {
+	console.log("Video Quality: " + this.value);
+	sendQuality();
+}
 
 // traffic controllers // should turn this into a queue or something
 var waiting_on_corners = false;
